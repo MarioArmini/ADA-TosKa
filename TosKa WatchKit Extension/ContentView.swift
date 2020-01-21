@@ -8,10 +8,14 @@
 
 import SwiftUI
 
+            
+           
+
 struct ContentView: View {
     
     @State var seconds = 0
     @State var changed = false
+    @State var highlighted = false
     
     // Opacity of circles
     @State var op = 0.2
@@ -36,7 +40,7 @@ struct ContentView: View {
     @State var op20 = 0.2
     
     // First message on the screen
-    @State var firstMessage = "Ready"
+    @State var firstMessage = "READY"
     
     // Timer
     let timer = Timer.publish(every: 1, on: .current, in: .common)
@@ -302,15 +306,15 @@ struct ContentView: View {
                 
                 // Stack with elements inside the circles
                 VStack{
-                    Text("\(self.seconds)").onReceive(timer){ _ in
+                    Text("\(self.seconds)").fontWeight(.medium).foregroundColor(Color(red: 0.69, green: 0.988, blue: 0.922)).onReceive(timer){ _ in
                         if self.seconds == 1{
-                            self.firstMessage = "Inhale"
+                            self.firstMessage = "INHALE"
                         }
                         else  if self.seconds == 4{
-                            self.firstMessage = "Hold"
+                            self.firstMessage = "HOLD"
                         }
                         else if self.seconds == 11{
-                            self.firstMessage = "Exhale"
+                            self.firstMessage = "EXHALE"
                         }
                         else if self.seconds == 20 {
                             self.timer.connect().cancel()
@@ -318,12 +322,15 @@ struct ContentView: View {
                         }
                         
                     }
+                    
                     Text(firstMessage)
+                        .fontWeight(.semibold)
+                        .foregroundColor(Color(red: 0.69, green: 0.988, blue: 0.922))
+                        }
                         .onTapGesture {
                             self.changed.toggle()
                             self.timer.connect()
                     }
-                }
                 
             }
             
@@ -332,6 +339,8 @@ struct ContentView: View {
     }
     
 }
+
+
 struct angioletto: View{
     @State var changed = false
     @State private var showDetail = false
