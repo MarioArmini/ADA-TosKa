@@ -14,26 +14,26 @@ struct ContentView: View {
     @State var changed = false
     
     // Opacity of circles
-    @State var op = 0.0
-    @State var op2 = 0.0
-    @State var op3 = 0.0
-    @State var op4 = 0.0
-    @State var op5 = 0.0
-    @State var op6 = 0.0
-    @State var op7 = 0.0
-    @State var op8 = 0.0
-    @State var op9 = 0.0
-    @State var op10 = 0.0
-    @State var op11 = 0.0
-    @State var op12 = 0.0
-    @State var op13 = 0.0
-    @State var op14 = 0.0
-    @State var op15 = 0.0
-    @State var op16 = 0.0
-    @State var op17 = 0.0
-    @State var op18 = 0.0
-    @State var op19 = 0.0
-    @State var op20 = 0.0
+    @State var op = 0.2
+    @State var op2 = 0.2
+    @State var op3 = 0.2
+    @State var op4 = 0.2
+    @State var op5 = 0.2
+    @State var op6 = 0.2
+    @State var op7 = 0.2
+    @State var op8 = 0.2
+    @State var op9 = 0.2
+    @State var op10 = 0.2
+    @State var op11 = 0.2
+    @State var op12 = 0.2
+    @State var op13 = 0.2
+    @State var op14 = 0.2
+    @State var op15 = 0.2
+    @State var op16 = 0.2
+    @State var op17 = 0.2
+    @State var op18 = 0.2
+    @State var op19 = 0.2
+    @State var op20 = 0.2
     
     // First message on the screen
     @State var firstMessage = "Ready"
@@ -57,7 +57,7 @@ struct ContentView: View {
                     // Little circles
                     Circle()
                         .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
-                        .frame(width: 10, height: 10)
+                        .frame(width: 13, height: 13)
                         .offset(y: -64)
                         .onReceive(timer){ _ in
                             self.seconds = self.seconds + 1
@@ -69,7 +69,7 @@ struct ContentView: View {
                     
                     Circle()
                         .fill(Color(red: 0.282, green: 0.694, blue: 0.855))
-                        .frame(width: 10, height: 10)
+                        .frame(width: 13, height: 13)
                         .offset(y: -64)
                         .rotationEffect(.degrees(18))
                         .onReceive(timer){ _ in
@@ -81,7 +81,7 @@ struct ContentView: View {
                     
                     Circle()
                         .fill(Color(red: 0.38, green: 0.651, blue: 0.855))
-                        .frame(width: 10, height: 10)
+                        .frame(width: 13, height: 13)
                         .offset(y: -64)
                         .rotationEffect(.degrees(36))
                         .onReceive(timer){ _ in
@@ -93,7 +93,7 @@ struct ContentView: View {
                     
                     Circle()
                         .fill(Color(red: 0.392, green: 0.639, blue: 0.855))
-                        .frame(width: 10, height: 10)
+                        .frame(width: 13, height: 13)
                         .offset(y: -64)
                         .rotationEffect(.degrees(54))
                         .onReceive(timer){ _ in
@@ -105,7 +105,7 @@ struct ContentView: View {
                     
                     Circle()
                         .fill(Color(red: 0.475, green: 0.6, blue: 0.851))
-                        .frame(width: 10, height: 10)
+                        .frame(width: 13, height: 13)
                         .offset(y: -64)
                         .rotationEffect(.degrees(72))
                         .onReceive(timer){ _ in
@@ -117,7 +117,7 @@ struct ContentView: View {
                     
                     Circle()
                         .fill(Color(red: 0.518, green: 0.58, blue: 0.851))
-                        .frame(width: 10, height: 10)
+                        .frame(width: 13, height: 13)
                         .offset(y: -64)
                         .rotationEffect(.degrees(90))
                         .onReceive(timer){ _ in
@@ -129,7 +129,7 @@ struct ContentView: View {
                     
                     Circle()
                         .fill(Color(red: 0.518, green: 0.58, blue: 0.851))
-                        .frame(width: 10, height: 10)
+                        .frame(width: 13, height: 13)
                         .offset(y: -64)
                         .rotationEffect(.degrees(108))
                         .onReceive(timer){ _ in
@@ -141,7 +141,7 @@ struct ContentView: View {
                     
                     Circle()
                         .fill(Color(red: 0.494, green: 0.592, blue: 0.851))
-                        .frame(width: 10, height: 10)
+                        .frame(width: 13, height: 13)
                         .offset(y: -64)
                         .rotationEffect(.degrees(126))
                         .onReceive(timer){ _ in
@@ -153,7 +153,7 @@ struct ContentView: View {
                     
                     Circle()
                         .fill(Color(red: 0.502, green: 0.588, blue: 0.851))
-                        .frame(width: 10, height: 10)
+                        .frame(width: 13, height: 13)
                         .offset(y: -64)
                         .rotationEffect(.degrees(144))
                         .onReceive(timer){ _ in
@@ -168,7 +168,7 @@ struct ContentView: View {
                 Group{
                     Circle()
                         .fill(Color(red: 0.282, green: 0.694, blue: 0.855))
-                        .frame(width: 10, height: 10)
+                        .frame(width: 13, height: 13)
                         .offset(y: -64)
                         .rotationEffect(.degrees(162))
                         .onReceive(timer){ _ in
@@ -180,7 +180,7 @@ struct ContentView: View {
                     
                     Circle()
                         .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
-                        .frame(width: 10, height: 10)
+                        .frame(width: 13, height: 13)
                         .offset(y: -64)
                         .rotationEffect(.degrees(180))
                         .onReceive(timer){ _ in
@@ -192,7 +192,7 @@ struct ContentView: View {
                     
                     Circle()
                         .fill(Color(red: 0.294, green: 0.855, blue: 0.875))
-                        .frame(width: 10, height: 10)
+                        .frame(width: 13, height: 13)
                         .offset(y: -64)
                         .rotationEffect(.degrees(198))
                         .onReceive(timer){ _ in
@@ -204,7 +204,7 @@ struct ContentView: View {
                     
                     Circle()
                         .fill(Color(red: 0.427, green: 0.898, blue: 0.886))
-                        .frame(width: 10, height: 10)
+                        .frame(width: 13, height: 13)
                         .offset(y: -64)
                         .rotationEffect(.degrees(216))
                         .onReceive(timer){ _ in
@@ -216,7 +216,7 @@ struct ContentView: View {
                     
                     Circle()
                         .fill(Color(red: 0.573, green: 0.949, blue: 0.894))
-                        .frame(width: 10, height: 10)
+                        .frame(width: 13, height: 13)
                         .offset(y: -64)
                         .rotationEffect(.degrees(234))
                         .onReceive(timer){ _ in
@@ -228,7 +228,7 @@ struct ContentView: View {
                     
                     Circle()
                         .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
-                        .frame(width: 10, height: 10)
+                        .frame(width: 13, height: 13)
                         .offset(y: -64)
                         .rotationEffect(.degrees(252))
                         .onReceive(timer){ _ in
@@ -240,7 +240,7 @@ struct ContentView: View {
                     
                     Circle()
                         .fill(Color(red: 0.651, green: 0.976, blue: 0.902))
-                        .frame(width: 10, height: 10)
+                        .frame(width: 13, height: 13)
                         .offset(y: -64)
                         .rotationEffect(.degrees(270))
                         .onReceive(timer){ _ in
@@ -252,7 +252,7 @@ struct ContentView: View {
                     
                     Circle()
                         .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
-                        .frame(width: 10, height: 10)
+                        .frame(width: 13, height: 13)
                         .offset(y: -64)
                         .rotationEffect(.degrees(288))
                         .onReceive(timer){ _ in
@@ -264,7 +264,7 @@ struct ContentView: View {
                     
                     Circle()
                         .fill(Color(red: 0.573, green: 0.949, blue: 0.894))
-                        .frame(width: 10, height: 10)
+                        .frame(width: 13, height: 13)
                         .offset(y: -64)
                         .rotationEffect(.degrees(306))
                         .onReceive(timer){ _ in
@@ -276,7 +276,7 @@ struct ContentView: View {
                     
                     Circle()
                         .fill(Color(red: 0.408, green: 0.89, blue: 0.882))
-                        .frame(width: 10, height: 10)
+                        .frame(width: 13, height: 13)
                         .offset(y: -64)
                         .rotationEffect(.degrees(324))
                         .onReceive(timer){ _ in
@@ -290,7 +290,7 @@ struct ContentView: View {
             ZStack{
                 Circle()
                     .fill(Color(red: 0.294, green: 0.855, blue: 0.875))
-                    .frame(width: 10, height: 10)
+                    .frame(width: 13, height: 13)
                     .offset(y: -64)
                     .rotationEffect(.degrees(342))
                     .onReceive(timer){ _ in
