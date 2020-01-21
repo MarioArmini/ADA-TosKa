@@ -8,10 +8,14 @@
 
 import SwiftUI
 
+            
+           
+
 struct ContentView: View {
     
     @State var seconds = 0
     @State var changed = false
+    @State var highlighted = false
     
     // Opacity of circles
     @State var op = 0.2
@@ -318,14 +322,15 @@ struct ContentView: View {
                         }
                         
                     }
+                    
                     Text(firstMessage)
                         .fontWeight(.semibold)
                         .foregroundColor(Color(red: 0.69, green: 0.988, blue: 0.922))
+                        }
                         .onTapGesture {
                             self.changed.toggle()
                             self.timer.connect()
                     }
-                }
                 
             }
             
@@ -334,6 +339,8 @@ struct ContentView: View {
     }
     
 }
+
+
 struct angioletto: View{
     @State var changed = false
     @State private var showDetail = false
