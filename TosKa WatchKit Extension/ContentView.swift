@@ -12,6 +12,8 @@ import SwiftUI
 
 
 struct ContentView: View {
+    //    State per mostrare l'alert
+    @State private var show_alert: Bool = false
     
     @State var seconds = 0
     @State var changed = false
@@ -41,6 +43,7 @@ struct ContentView: View {
     
     // First message on the screen
     @State var firstMessage = "READY"
+    @State var nameActivity = "Breathe"
     
     // Timer
     let timer = Timer.publish(every: 1, on: .current, in: .common)
@@ -49,305 +52,345 @@ struct ContentView: View {
     var body: some View {
         ZStack{
             ZStack{
-                Group{
-                    
-                    // Test Circle (It can be deleted)
-                    Circle()
-                        .stroke()
-                        .foregroundColor(changed ? .white : .red)
-                        .frame(width: 130, height: 130)
-                        .opacity(0)
-                    
-                    // Little circles
-                    Circle()
-                        .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
-                        .frame(width: 13, height: 13)
-                        .offset(y: -64)
-                        .onReceive(timer){ _ in
-                            self.seconds = self.seconds + 1
-                            if self.seconds == 1{
-                                self.op = 1.0
-                            }
+                ZStack{
+                    Group{
+                        
+                        // Test Circle (It can be deleted)
+                        Circle()
+                            .stroke()
+                            .foregroundColor(changed ? .white : .red)
+                            .frame(width: 130, height: 130)
+                            .opacity(0)
+                        
+                        // Little circles
+                        Circle()
+                            .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
+                            .frame(width: 13, height: 13)
+                            .offset(y: -64)
+                            .onReceive(timer){ _ in
+                                self.seconds = self.seconds + 1
+                                if self.seconds == 1{
+                                    self.op = 1.0
+                                }
+                        }
+                        .opacity(self.op)
+                        
+                        Circle()
+                            .fill(Color(red: 0.282, green: 0.694, blue: 0.855))
+                            .frame(width: 13, height: 13)
+                            .offset(y: -64)
+                            .rotationEffect(.degrees(18))
+                            .onReceive(timer){ _ in
+                                if self.seconds == 2{
+                                    self.op2 = 1.0
+                                }
+                        }
+                        .opacity(self.op2)
+                        
+                        Circle()
+                            .fill(Color(red: 0.38, green: 0.651, blue: 0.855))
+                            .frame(width: 13, height: 13)
+                            .offset(y: -64)
+                            .rotationEffect(.degrees(36))
+                            .onReceive(timer){ _ in
+                                if self.seconds == 3{
+                                    self.op3 = 1.0
+                                }
+                        }
+                        .opacity(self.op3)
+                        
+                        Circle()
+                            .fill(Color(red: 0.392, green: 0.639, blue: 0.855))
+                            .frame(width: 13, height: 13)
+                            .offset(y: -64)
+                            .rotationEffect(.degrees(54))
+                            .onReceive(timer){ _ in
+                                if self.seconds == 4{
+                                    self.op4 = 1.0
+                                }
+                        }
+                        .opacity(self.op4)
+                        
+                        Circle()
+                            .fill(Color(red: 0.475, green: 0.6, blue: 0.851))
+                            .frame(width: 13, height: 13)
+                            .offset(y: -64)
+                            .rotationEffect(.degrees(72))
+                            .onReceive(timer){ _ in
+                                if self.seconds == 5{
+                                    self.op5 = 1.0
+                                }
+                        }
+                        .opacity(self.op5)
+                        
+                        Circle()
+                            .fill(Color(red: 0.518, green: 0.58, blue: 0.851))
+                            .frame(width: 13, height: 13)
+                            .offset(y: -64)
+                            .rotationEffect(.degrees(90))
+                            .onReceive(timer){ _ in
+                                if self.seconds == 6{
+                                    self.op6 = 1.0
+                                }
+                        }
+                        .opacity(self.op6)
+                        
+                        Circle()
+                            .fill(Color(red: 0.518, green: 0.58, blue: 0.851))
+                            .frame(width: 13, height: 13)
+                            .offset(y: -64)
+                            .rotationEffect(.degrees(108))
+                            .onReceive(timer){ _ in
+                                if self.seconds == 7{
+                                    self.op7 = 1.0
+                                }
+                        }
+                        .opacity(self.op7)
+                        
+                        Circle()
+                            .fill(Color(red: 0.494, green: 0.592, blue: 0.851))
+                            .frame(width: 13, height: 13)
+                            .offset(y: -64)
+                            .rotationEffect(.degrees(126))
+                            .onReceive(timer){ _ in
+                                if self.seconds == 8{
+                                    self.op8 = 1.0
+                                }
+                        }
+                        .opacity(self.op8)
+                        
+                        Circle()
+                            .fill(Color(red: 0.502, green: 0.588, blue: 0.851))
+                            .frame(width: 13, height: 13)
+                            .offset(y: -64)
+                            .rotationEffect(.degrees(144))
+                            .onReceive(timer){ _ in
+                                if self.seconds == 9{
+                                    self.op9 = 1.0
+                                }
+                        }
+                        .opacity(self.op9)
                     }
-                    .opacity(self.op)
-                    
-                    Circle()
-                        .fill(Color(red: 0.282, green: 0.694, blue: 0.855))
-                        .frame(width: 13, height: 13)
-                        .offset(y: -64)
-                        .rotationEffect(.degrees(18))
-                        .onReceive(timer){ _ in
-                            if self.seconds == 2{
-                                self.op2 = 1.0
-                            }
-                    }
-                    .opacity(self.op2)
-                    
-                    Circle()
-                        .fill(Color(red: 0.38, green: 0.651, blue: 0.855))
-                        .frame(width: 13, height: 13)
-                        .offset(y: -64)
-                        .rotationEffect(.degrees(36))
-                        .onReceive(timer){ _ in
-                            if self.seconds == 3{
-                                self.op3 = 1.0
-                            }
-                    }
-                    .opacity(self.op3)
-                    
-                    Circle()
-                        .fill(Color(red: 0.392, green: 0.639, blue: 0.855))
-                        .frame(width: 13, height: 13)
-                        .offset(y: -64)
-                        .rotationEffect(.degrees(54))
-                        .onReceive(timer){ _ in
-                            if self.seconds == 4{
-                                self.op4 = 1.0
-                            }
-                    }
-                    .opacity(self.op4)
-                    
-                    Circle()
-                        .fill(Color(red: 0.475, green: 0.6, blue: 0.851))
-                        .frame(width: 13, height: 13)
-                        .offset(y: -64)
-                        .rotationEffect(.degrees(72))
-                        .onReceive(timer){ _ in
-                            if self.seconds == 5{
-                                self.op5 = 1.0
-                            }
-                    }
-                    .opacity(self.op5)
-                    
-                    Circle()
-                        .fill(Color(red: 0.518, green: 0.58, blue: 0.851))
-                        .frame(width: 13, height: 13)
-                        .offset(y: -64)
-                        .rotationEffect(.degrees(90))
-                        .onReceive(timer){ _ in
-                            if self.seconds == 6{
-                                self.op6 = 1.0
-                            }
-                    }
-                    .opacity(self.op6)
-                    
-                    Circle()
-                        .fill(Color(red: 0.518, green: 0.58, blue: 0.851))
-                        .frame(width: 13, height: 13)
-                        .offset(y: -64)
-                        .rotationEffect(.degrees(108))
-                        .onReceive(timer){ _ in
-                            if self.seconds == 7{
-                                self.op7 = 1.0
-                            }
-                    }
-                    .opacity(self.op7)
-                    
-                    Circle()
-                        .fill(Color(red: 0.494, green: 0.592, blue: 0.851))
-                        .frame(width: 13, height: 13)
-                        .offset(y: -64)
-                        .rotationEffect(.degrees(126))
-                        .onReceive(timer){ _ in
-                            if self.seconds == 8{
-                                self.op8 = 1.0
-                            }
-                    }
-                    .opacity(self.op8)
-                    
-                    Circle()
-                        .fill(Color(red: 0.502, green: 0.588, blue: 0.851))
-                        .frame(width: 13, height: 13)
-                        .offset(y: -64)
-                        .rotationEffect(.degrees(144))
-                        .onReceive(timer){ _ in
-                            if self.seconds == 9{
-                                self.op9 = 1.0
-                            }
-                    }
-                    .opacity(self.op9)
                 }
-            }
-            ZStack{
-                Group{
-                    Circle()
-                        .fill(Color(red: 0.282, green: 0.694, blue: 0.855))
-                        .frame(width: 13, height: 13)
-                        .offset(y: -64)
-                        .rotationEffect(.degrees(162))
-                        .onReceive(timer){ _ in
-                            if self.seconds == 10{
-                                self.op10 = 1.0
-                            }
+                ZStack{
+                    Group{
+                        Circle()
+                            .fill(Color(red: 0.282, green: 0.694, blue: 0.855))
+                            .frame(width: 13, height: 13)
+                            .offset(y: -64)
+                            .rotationEffect(.degrees(162))
+                            .onReceive(timer){ _ in
+                                if self.seconds == 10{
+                                    self.op10 = 1.0
+                                }
+                        }
+                        .opacity(self.op10)
+                        
+                        Circle()
+                            .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
+                            .frame(width: 13, height: 13)
+                            .offset(y: -64)
+                            .rotationEffect(.degrees(180))
+                            .onReceive(timer){ _ in
+                                if self.seconds == 11{
+                                    self.op11 = 1.0
+                                }
+                        }
+                        .opacity(self.op11)
+                        
+                        Circle()
+                            .fill(Color(red: 0.294, green: 0.855, blue: 0.875))
+                            .frame(width: 13, height: 13)
+                            .offset(y: -64)
+                            .rotationEffect(.degrees(198))
+                            .onReceive(timer){ _ in
+                                if self.seconds == 12{
+                                    self.op12 = 1.0
+                                }
+                        }
+                        .opacity(self.op12)
+                        
+                        Circle()
+                            .fill(Color(red: 0.427, green: 0.898, blue: 0.886))
+                            .frame(width: 13, height: 13)
+                            .offset(y: -64)
+                            .rotationEffect(.degrees(216))
+                            .onReceive(timer){ _ in
+                                if self.seconds == 13{
+                                    self.op13 = 1.0
+                                }
+                        }
+                        .opacity(self.op13)
+                        
+                        Circle()
+                            .fill(Color(red: 0.573, green: 0.949, blue: 0.894))
+                            .frame(width: 13, height: 13)
+                            .offset(y: -64)
+                            .rotationEffect(.degrees(234))
+                            .onReceive(timer){ _ in
+                                if self.seconds == 14{
+                                    self.op14 = 1.0
+                                }
+                        }
+                        .opacity(self.op14)
+                        
+                        Circle()
+                            .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
+                            .frame(width: 13, height: 13)
+                            .offset(y: -64)
+                            .rotationEffect(.degrees(252))
+                            .onReceive(timer){ _ in
+                                if self.seconds == 15{
+                                    self.op15 = 1.0
+                                }
+                        }
+                        .opacity(self.op15)
+                        
+                        Circle()
+                            .fill(Color(red: 0.651, green: 0.976, blue: 0.902))
+                            .frame(width: 13, height: 13)
+                            .offset(y: -64)
+                            .rotationEffect(.degrees(270))
+                            .onReceive(timer){ _ in
+                                if self.seconds == 16{
+                                    self.op16 = 1.0
+                                }
+                        }
+                        .opacity(self.op16)
+                        
+                        Circle()
+                            .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
+                            .frame(width: 13, height: 13)
+                            .offset(y: -64)
+                            .rotationEffect(.degrees(288))
+                            .onReceive(timer){ _ in
+                                if self.seconds == 17{
+                                    self.op17 = 1.0
+                                }
+                        }
+                        .opacity(self.op17)
+                        
+                        Circle()
+                            .fill(Color(red: 0.573, green: 0.949, blue: 0.894))
+                            .frame(width: 13, height: 13)
+                            .offset(y: -64)
+                            .rotationEffect(.degrees(306))
+                            .onReceive(timer){ _ in
+                                if self.seconds == 18{
+                                    self.op18 = 1.0
+                                }
+                        }
+                        .opacity(self.op18)
+                        
+                        Circle()
+                            .fill(Color(red: 0.408, green: 0.89, blue: 0.882))
+                            .frame(width: 13, height: 13)
+                            .offset(y: -64)
+                            .rotationEffect(.degrees(324))
+                            .onReceive(timer){ _ in
+                                if self.seconds == 19{
+                                    self.op19 = 1.0
+                                }
+                        }
+                        .opacity(self.op19)
                     }
-                    .opacity(self.op10)
-                    
-                    Circle()
-                        .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
-                        .frame(width: 13, height: 13)
-                        .offset(y: -64)
-                        .rotationEffect(.degrees(180))
-                        .onReceive(timer){ _ in
-                            if self.seconds == 11{
-                                self.op11 = 1.0
-                            }
-                    }
-                    .opacity(self.op11)
-                    
+                }
+                ZStack{
                     Circle()
                         .fill(Color(red: 0.294, green: 0.855, blue: 0.875))
                         .frame(width: 13, height: 13)
                         .offset(y: -64)
-                        .rotationEffect(.degrees(198))
+                        .rotationEffect(.degrees(342))
                         .onReceive(timer){ _ in
-                            if self.seconds == 12{
-                                self.op12 = 1.0
+                            if self.seconds == 20{
+                                self.op20 = 1.0
                             }
                     }
-                    .opacity(self.op12)
+                    .opacity(self.op20)
                     
-                    Circle()
-                        .fill(Color(red: 0.427, green: 0.898, blue: 0.886))
-                        .frame(width: 13, height: 13)
-                        .offset(y: -64)
-                        .rotationEffect(.degrees(216))
-                        .onReceive(timer){ _ in
-                            if self.seconds == 13{
-                                self.op13 = 1.0
+                    // Stack with elements inside the circles
+                    VStack{
+                        Text("\(self.seconds)").fontWeight(.medium).foregroundColor(Color(red: 0.69, green: 0.988, blue: 0.922)).onReceive(timer){ _ in
+                            if self.seconds == 1{
+                                self.firstMessage = "INHALE"
                             }
-                    }
-                    .opacity(self.op13)
-                    
-                    Circle()
-                        .fill(Color(red: 0.573, green: 0.949, blue: 0.894))
-                        .frame(width: 13, height: 13)
-                        .offset(y: -64)
-                        .rotationEffect(.degrees(234))
-                        .onReceive(timer){ _ in
-                            if self.seconds == 14{
-                                self.op14 = 1.0
+                            else  if self.seconds == 4{
+                                self.firstMessage = "HOLD"
                             }
-                    }
-                    .opacity(self.op14)
-                    
-                    Circle()
-                        .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
-                        .frame(width: 13, height: 13)
-                        .offset(y: -64)
-                        .rotationEffect(.degrees(252))
-                        .onReceive(timer){ _ in
-                            if self.seconds == 15{
-                                self.op15 = 1.0
+                            else if self.seconds == 11{
+                                self.firstMessage = "EXHALE"
                             }
-                    }
-                    .opacity(self.op15)
-                    
-                    Circle()
-                        .fill(Color(red: 0.651, green: 0.976, blue: 0.902))
-                        .frame(width: 13, height: 13)
-                        .offset(y: -64)
-                        .rotationEffect(.degrees(270))
-                        .onReceive(timer){ _ in
-                            if self.seconds == 16{
-                                self.op16 = 1.0
+                            else if self.seconds == 20 {
+                                self.timer.connect().cancel()
+                                //                                Imposto show_modal come toggle(false and true)
+                                self.show_alert.toggle()
+                                //                                lo setto come true
+                                self.show_alert = true
+                                
+                                self.nameActivity = ""
+                                
                             }
-                    }
-                    .opacity(self.op16)
-                    
-                    Circle()
-                        .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
-                        .frame(width: 13, height: 13)
-                        .offset(y: -64)
-                        .rotationEffect(.degrees(288))
-                        .onReceive(timer){ _ in
-                            if self.seconds == 17{
-                                self.op17 = 1.0
-                            }
-                    }
-                    .opacity(self.op17)
-                    
-                    Circle()
-                        .fill(Color(red: 0.573, green: 0.949, blue: 0.894))
-                        .frame(width: 13, height: 13)
-                        .offset(y: -64)
-                        .rotationEffect(.degrees(306))
-                        .onReceive(timer){ _ in
-                            if self.seconds == 18{
-                                self.op18 = 1.0
-                            }
-                    }
-                    .opacity(self.op18)
-                    
-                    Circle()
-                        .fill(Color(red: 0.408, green: 0.89, blue: 0.882))
-                        .frame(width: 13, height: 13)
-                        .offset(y: -64)
-                        .rotationEffect(.degrees(324))
-                        .onReceive(timer){ _ in
-                            if self.seconds == 19{
-                                self.op19 = 1.0
-                            }
-                    }
-                    .opacity(self.op19)
-                }
-            }
-            ZStack{
-                Circle()
-                    .fill(Color(red: 0.294, green: 0.855, blue: 0.875))
-                    .frame(width: 13, height: 13)
-                    .offset(y: -64)
-                    .rotationEffect(.degrees(342))
-                    .onReceive(timer){ _ in
-                        if self.seconds == 20{
-                            self.op20 = 1.0
-                        }
-                }
-                .opacity(self.op20)
-                
-                // Stack with elements inside the circles
-                VStack{
-                    Text("\(self.seconds)").fontWeight(.medium).foregroundColor(Color(red: 0.69, green: 0.988, blue: 0.922)).onReceive(timer){ _ in
-                        if self.seconds == 1{
-                            self.firstMessage = "INHALE"
-                        }
-                        else  if self.seconds == 4{
-                            self.firstMessage = "HOLD"
-                        }
-                        else if self.seconds == 11{
-                            self.firstMessage = "EXHALE"
-                        }
-                        else if self.seconds == 20 {
-                            self.timer.connect().cancel()
                             
                         }
                         
+                        Text(firstMessage)
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color(red: 0.69, green: 0.988, blue: 0.922))
+                        Text(self.nameActivity).fontWeight(.semibold)
+                            .offset(y: +70).foregroundColor(Color(red: 0.69, green: 0.988, blue: 0.922))
+                    }
+                    .onTapGesture {
+                        self.changed.toggle()
+                        self.timer.connect()
                     }
                     
-                    Text(firstMessage)
-                        .fontWeight(.semibold)
-                        .foregroundColor(Color(red: 0.69, green: 0.988, blue: 0.922))
-                }
-                .onTapGesture {
-                    self.changed.toggle()
-                    self.timer.connect()
                 }
                 
-            }
-            
+                //                Nascondo il back bar button
+            }.navigationBarBackButtonHidden(true)
+            //            Quando show_modal diventa true AlertView si presenta
+            AlertView_1_2(show: self.$show_alert)
         }
-        
     }
     
 }
 
+struct AlertView_1_2: View {
+    //    binding Per mostrare la view
+    @Binding var show: Bool
+    
+    
+    var body: some View {
+        ZStack{
+            VStack{
+                Text("How do you Feel? ")
+                Spacer()
+                
+                NavigationLink(destination: angioletto()){
+                    Text("Continue")
+                }
+                NavigationLink(destination: ContentView()){
+                    Text("Repeat")
+                }
+                Spacer()
+                
+            }
+        }
+        .background(Color.black)
+        .offset(x: self.show ? 0 : 500, y: 0)
+    }
+}
+
+
 
 struct angioletto: View{
+    
     @State var changed = false
-    @State private var showDetail = false
     @State private var dim = false
     @State private var dim1 = false
     @State private var dim2 = false
     @State private var dim3 = false
+    @State private var dim4 = false
     @State private var dim4 = false
     var body: some View{
         ZStack{
@@ -423,7 +466,7 @@ struct angioletto: View{
                                 .foregroundColor(Color.black)
                                 .offset(x: 0, y: -60)
                                 .rotationEffect(.degrees(90))
-                                .opacity(1)
+                            
                             
                             Circle()
                                 .fill(Color(red: 0.392, green: 0.639, blue: 0.855))
@@ -575,7 +618,7 @@ struct angioletto: View{
                                     .frame(width: 13, height: 13)
                                     .offset(y: -64)
                                     .rotationEffect(.degrees(288))
-                                    .opacity(1)
+                                
                                 
                                 
                                 
@@ -634,7 +677,7 @@ struct angioletto: View{
                     Circle()
                         .fill(Color(red: 0.294, green: 0.855, blue: 0.875))
                         .frame(width: 10.4, height: 10.4)
-                        .offset(x: 0, y: -34)
+                        .opacity(1)
                         .opacity(1)
                         .rotationEffect(.degrees(337.5))
                     Circle()
@@ -701,14 +744,14 @@ struct angioletto: View{
                         .fill(Color(red: 0.573, green: 0.949, blue: 0.894))
                         .frame(width: 13, height: 13)
                         .offset(y: -64)
-                        .rotationEffect(.degrees(234))
+                        .opacity(1)
                         .opacity(1)
                     
                     Circle()
                         .fill(Color(red: 0.651, green: 0.976, blue: 0.902))
                         .frame(width: 13, height: 13)
                         .offset(y: -64)
-                        .rotationEffect(.degrees(270))
+                        .opacity(1)
                         .opacity(1)
                     
                     Circle()
@@ -728,7 +771,7 @@ struct angioletto: View{
                         .fill(Color(red: 0.294, green: 0.855, blue: 0.875))
                         .frame(width: 11.7, height: 11.7)
                         .offset(x: 0, y: -48)
-                        .rotationEffect(.degrees(270))
+                        .opacity(1)
                         .opacity(1)
                     Circle()
                         .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
@@ -766,7 +809,7 @@ struct angioletto: View{
                     Circle()
                         .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
                         .frame(width: 11.7, height: 11.7)
-                        .offset(x: 0, y: -48)
+                        .opacity(1)
                         .opacity(1)
                         .rotationEffect(.degrees(252))
                     
@@ -832,18 +875,18 @@ struct angioletto: View{
                     Circle()
                         .fill(Color(red: 0.573, green: 0.949, blue: 0.894))
                         .frame(width: 10.4, height: 10.4)
-                        .offset(x: 0, y: -34)
+                        .opacity(1)
                         .opacity(1)
                         .rotationEffect(.degrees(315))
                     Circle()
                         .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
                         .frame(width: 10.4, height: 10.4)
-                        .offset(x: 0, y: -34)
+                        .opacity(1)
                         .opacity(1)
                     Circle()
                         .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
                         .frame(width: 10.4, height: 10.4)
-                        .offset(x: 0, y: -34)
+                        .opacity(1)
                         .opacity(1)
                         .rotationEffect(.degrees(22.5))
                     Circle()
@@ -913,7 +956,7 @@ struct angioletto: View{
                     Circle()
                         .fill(Color(red: 0.518, green: 0.58, blue: 0.851))
                         .frame(width: 7.5, height: 7.5)
-                        .offset(x: 0, y: -22)
+                        .opacity(1)
                         .opacity(1)
                         .rotationEffect(.degrees(120))
                     Circle()
@@ -976,7 +1019,6 @@ struct angioletto: View{
                 }
             }
             
-            ZStack{
                 Group{
                     
                     //                    V cerchio
@@ -1006,7 +1048,7 @@ struct angioletto: View{
                         .offset(x: 0, y: -13)
                         .opacity(1)
                         .rotationEffect(.degrees(216))
-                }
+                        .rotationEffect(.degrees(216))
             }
             }
             .opacity(dim4 ? 1.0 : 0.2)
@@ -1015,7 +1057,11 @@ struct angioletto: View{
                 self.dim4.toggle()
             }
              
-        }
+            .onLongPressGesture(minimumDuration: 2.0){
+                self.dim4.toggle()
+            }
+             
+        }.navigationBarBackButtonHidden(true)
         
     }
 }
@@ -1025,6 +1071,6 @@ struct angioletto: View{
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        angioletto()
+        ContentView()
     }
 }
