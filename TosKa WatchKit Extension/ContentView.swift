@@ -416,6 +416,12 @@ struct angioletto: View{
                                 .rotationEffect(.degrees(90))
                                 .opacity(1)
                             Circle()
+                                                  .fill(Color(red: 0.475, green: 0.6, blue: 0.851))
+                                                  .frame(width: 7.5, height: 7.5)
+                                                  .offset(x: 0, y: -22)
+                                                  .opacity(1)
+                                                  .rotationEffect(.degrees(96))
+                            Circle()
                                 .fill(Color(red: 0.392, green: 0.639, blue: 0.855))
                                 .frame(width: 13, height: 13)
                                 .offset(y: -64)
@@ -451,6 +457,12 @@ struct angioletto: View{
                                 .offset(x: 0, y: -22)
                                 .opacity(1)
                                 .rotationEffect(.degrees(48))
+                            Circle()
+                                                           .fill(Color(red: 0.38, green: 0.651, blue: 0.855))
+                                                           .frame(width: 5.5, height: 5.5)
+                                                           .offset(x: 0, y: -13)
+                                                           .opacity(1)
+                                                           .rotationEffect(.degrees(72))
                             
                             Circle()
                                 .fill(Color(red: 0.494, green: 0.592, blue: 0.851))
@@ -458,12 +470,7 @@ struct angioletto: View{
                                 .offset(x: 0, y: -13)
                                 .opacity(1)
                                 .rotationEffect(.degrees(108))
-                            Circle()
-                                .fill(Color(red: 0.38, green: 0.651, blue: 0.855))
-                                .frame(width: 5.5, height: 5.5)
-                                .offset(x: 0, y: -13)
-                                .opacity(1)
-                                .rotationEffect(.degrees(72))
+                            
                         }
                         .opacity(dim ? 1.0 : 0.2)
                         .animation(.easeIn(duration: 3.0))
@@ -497,8 +504,9 @@ struct angioletto: View{
                                 .fill(Color(red: 0.494, green: 0.592, blue: 0.851))
                                 .frame(width: 13, height: 13)
                                 .offset(y: -64)
-                                .rotationEffect(.degrees(126))
+                .rotationEffect(.degrees(126))
                                 .opacity(1)
+                            
                             Circle()
                                 .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
                                 .frame(width: 10.4, height: 10.4)
@@ -570,14 +578,11 @@ struct angioletto: View{
                                 .offset(y: -64)
                                 .rotationEffect(.degrees(342))
                                 .opacity(1)
+                                
+                                
+                                
                                 Circle()
-                                .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
-                                .frame(width: 11.7, height: 11.7)
-                                .offset(x: 0, y: -48)
-                                .opacity(1)
-                                .rotationEffect(.degrees(252))
-                                Circle()
-                                                       .fill(Color(red: 0.573, green: 0.949, blue: 0.894))
+                                    .fill(Color(red: 0.573, green: 0.949, blue: 0.894))
                                                        .frame(width: 10.4, height: 10.4)
                                                        .offset(x: 0, y: -34)
                                                        .opacity(1)
@@ -657,8 +662,6 @@ struct angioletto: View{
                     
                     
                     
-                    
-                    
                     Circle()
                         .fill(Color(red: 0.502, green: 0.588, blue: 0.851))
                         .frame(width: 13, height: 13)
@@ -715,6 +718,12 @@ struct angioletto: View{
                 Group{
                     //                    II cerchio
                     Circle()
+                                            .fill(Color(red: 0.294, green: 0.855, blue: 0.875))
+                                            .frame(width: 11.7, height: 11.7)
+                                            .offset(x: 0, y: -48)
+                                            .rotationEffect(.degrees(270))
+                        .opacity(0.2)
+                    Circle()
                         .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
                         .frame(width: 11.7, height: 11.7)
                         .offset(x: 0, y: -48)
@@ -747,7 +756,12 @@ struct angioletto: View{
                         .opacity(0.2)
                         .rotationEffect(.degrees(126))
                     
-                    
+                    Circle()
+                                .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
+                                      .frame(width: 11.7, height: 11.7)
+                                      .offset(x: 0, y: -48)
+                                          .opacity(0.2)
+                                      .rotationEffect(.degrees(252))
                     
                 }
             }
@@ -784,12 +798,7 @@ struct angioletto: View{
                         .opacity(0.2)
                         .rotationEffect(.degrees(234))
                     
-                    Circle()
-                        .fill(Color(red: 0.651, green: 0.976, blue: 0.902))
-                        .frame(width: 11.7, height: 11.7)
-                        .offset(x: 0, y: -48)
-                        .opacity(0.2)
-                        .rotationEffect(.degrees(270))
+                    
                     Circle()
                         .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
                         .frame(width: 11.7, height: 11.7)
@@ -911,12 +920,7 @@ struct angioletto: View{
             }
             ZStack{
                 Group{
-                    Circle()
-                        .fill(Color(red: 0.475, green: 0.6, blue: 0.851))
-                        .frame(width: 7.5, height: 7.5)
-                        .offset(x: 0, y: -22)
-                        .opacity(0.2)
-                        .rotationEffect(.degrees(96))
+                  
                     
                     Circle()
                         .fill(Color(red: 0.502, green: 0.588, blue: 0.851))
