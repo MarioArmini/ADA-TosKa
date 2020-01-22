@@ -391,7 +391,7 @@ struct angioletto: View{
     @State private var dim2 = false
     @State private var dim3 = false
     @State private var dim4 = false
-    @State private var dim4 = false
+    @State var nameActivity = "Blow"
     var body: some View{
         ZStack{
            
@@ -1050,16 +1050,20 @@ struct angioletto: View{
                         .rotationEffect(.degrees(216))
                         .rotationEffect(.degrees(216))
             }
+        
+                
             }
             .opacity(dim4 ? 1.0 : 0.2)
             .animation(.easeIn(duration: 3.0))
             .onLongPressGesture(minimumDuration: 2.0){
                 self.dim4.toggle()
             }
-             
-            .onLongPressGesture(minimumDuration: 2.0){
-                self.dim4.toggle()
-            }
+             Text(self.nameActivity)
+                               .fontWeight(.semibold)
+                               .offset(y: +100)
+                               .foregroundColor(Color(red: 0.69, green: 0.988, blue: 0.922))
+           
+            
              
         }.navigationBarBackButtonHidden(true)
         
