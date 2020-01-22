@@ -345,10 +345,19 @@ struct angioletto: View{
     @State var changed = false
     @State private var showDetail = false
     @State private var dim = false
+    @State private var dim1 = false
+    @State private var dim2 = false
+    @State private var dim3 = false
+    @State private var dim4 = false
     var body: some View{
         ZStack{
+           
             //            gruppo cerchi del primo settore
             Group{
+                Rectangle()
+                                              .frame(width: 200, height: 200)
+                                              .foregroundColor(Color.black)
+                                              .opacity(1)
                 
                 ZStack{
                     Group{
@@ -382,7 +391,7 @@ struct angioletto: View{
                             .opacity(1)
                             .rotationEffect(.degrees(18))
                         
-                      
+                        
                         Circle()
                             .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
                             .frame(width: 7.5, height: 7.5)
@@ -415,12 +424,7 @@ struct angioletto: View{
                                 .offset(x: 0, y: -60)
                                 .rotationEffect(.degrees(90))
                                 .opacity(1)
-                            Circle()
-                                                  .fill(Color(red: 0.475, green: 0.6, blue: 0.851))
-                                                  .frame(width: 7.5, height: 7.5)
-                                                  .offset(x: 0, y: -22)
-                                                  .opacity(1)
-                                                  .rotationEffect(.degrees(96))
+                            
                             Circle()
                                 .fill(Color(red: 0.392, green: 0.639, blue: 0.855))
                                 .frame(width: 13, height: 13)
@@ -458,11 +462,11 @@ struct angioletto: View{
                                 .opacity(1)
                                 .rotationEffect(.degrees(48))
                             Circle()
-                                                           .fill(Color(red: 0.38, green: 0.651, blue: 0.855))
-                                                           .frame(width: 5.5, height: 5.5)
-                                                           .offset(x: 0, y: -13)
-                                                           .opacity(1)
-                                                           .rotationEffect(.degrees(72))
+                                .fill(Color(red: 0.38, green: 0.651, blue: 0.855))
+                                .frame(width: 5.5, height: 5.5)
+                                .offset(x: 0, y: -13)
+                                .opacity(1)
+                                .rotationEffect(.degrees(72))
                             
                             Circle()
                                 .fill(Color(red: 0.494, green: 0.592, blue: 0.851))
@@ -472,10 +476,10 @@ struct angioletto: View{
                                 .rotationEffect(.degrees(108))
                             
                         }
-                        .opacity(dim ? 1.0 : 0.2)
+                        .opacity(dim1 ? 1.0 : 0.2)
                         .animation(.easeIn(duration: 3.0))
                         .onTapGesture(count: 1){
-                            self.dim.toggle()
+                            self.dim1.toggle()
                         }
                     }
                     
@@ -504,7 +508,7 @@ struct angioletto: View{
                                 .fill(Color(red: 0.494, green: 0.592, blue: 0.851))
                                 .frame(width: 13, height: 13)
                                 .offset(y: -64)
-                .rotationEffect(.degrees(126))
+                                .rotationEffect(.degrees(126))
                                 .opacity(1)
                             
                             Circle()
@@ -538,85 +542,82 @@ struct angioletto: View{
                                 .opacity(1)
                                 .rotationEffect(.degrees(157.5))
                         }
-                        .opacity(dim ? 1.0 : 0.2)
+                        .opacity(dim2 ? 1.0 : 0.2)
                         .animation(.easeIn(duration: 3.0))
                         .onTapGesture(count: 1){
-                            self.dim.toggle()
+                            self.dim2.toggle()
                         }
                     }
-//                    gruppo 4 settore
+                    //                    gruppo 4 settore
                     ZStack
                         {
                             Group{
                                 Capsule()
-                                .frame(width: 90 , height: 120)
-                                .foregroundColor(Color.black)
-                                .offset(x: 0, y: -60)
-                                .rotationEffect(.degrees(270))
-                                .opacity(1)
+                                    .frame(width: 90 , height: 120)
+                                    .foregroundColor(Color.black)
+                                    .offset(x: 0, y: -60)
+                                    .rotationEffect(.degrees(270))
+                                    .opacity(1)
                                 Circle()
-                                                       .fill(Color(red: 0.573, green: 0.949, blue: 0.894))
-                                                       .frame(width: 5.5, height: 5.5)
-                                                       .offset(x: 0, y: -13)
-                                                       .opacity(1)
-                                                       .rotationEffect(.degrees(324))
+                                    .fill(Color(red: 0.573, green: 0.949, blue: 0.894))
+                                    .frame(width: 5.5, height: 5.5)
+                                    .offset(x: 0, y: -13)
+                                    .opacity(1)
+                                    .rotationEffect(.degrees(324))
                                 Circle()
-                                                       .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
-                                                       .frame(width: 13, height: 13)
-                                                       .offset(y: -64)
-                                                       .rotationEffect(.degrees(252))
-                                                       .opacity(1)
+                                    .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
+                                    .frame(width: 13, height: 13)
+                                    .offset(y: -64)
+                                    .rotationEffect(.degrees(252))
+                                    .opacity(1)
                                 Circle()
-                                                       .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
-                                                       .frame(width: 13, height: 13)
-                                                       .offset(y: -64)
-                                                       .rotationEffect(.degrees(288))
-                                                       .opacity(1)
-                                Circle()
-                                .fill(Color(red: 0.294, green: 0.855, blue: 0.875))
-                                .frame(width: 13, height: 13)
-                                .offset(y: -64)
-                                .rotationEffect(.degrees(342))
-                                .opacity(1)
+                                    .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
+                                    .frame(width: 13, height: 13)
+                                    .offset(y: -64)
+                                    .rotationEffect(.degrees(288))
+                                    .opacity(1)
+                                
                                 
                                 
                                 
                                 Circle()
                                     .fill(Color(red: 0.573, green: 0.949, blue: 0.894))
-                                                       .frame(width: 10.4, height: 10.4)
-                                                       .offset(x: 0, y: -34)
-                                                       .opacity(1)
-                                                       .rotationEffect(.degrees(247.5))
+                                    .frame(width: 10.4, height: 10.4)
+                                    .offset(x: 0, y: -34)
+                                    .opacity(1)
+                                    .rotationEffect(.degrees(247.5))
                                 Circle()
-                                                       .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
-                                                       .frame(width: 7.5, height: 7.5)
-                                                       .offset(x: 0, y: -22)
-                                                       .opacity(1)
-                                                       .rotationEffect(.degrees(288))
+                                    .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
+                                    .frame(width: 7.5, height: 7.5)
+                                    .offset(x: 0, y: -22)
+                                    .opacity(1)
+                                    .rotationEffect(.degrees(288))
                                 Circle()
-                                .fill(Color(red: 0.408, green: 0.89, blue: 0.882))
-                                .frame(width: 7.5, height: 7.5)
-                                .offset(x: 0, y: -22)
-                                .opacity(1)
-                                .rotationEffect(.degrees(336))
+                                    .fill(Color(red: 0.408, green: 0.89, blue: 0.882))
+                                    .frame(width: 7.5, height: 7.5)
+                                    .offset(x: 0, y: -22)
+                                    .opacity(1)
+                                    .rotationEffect(.degrees(336))
                                 Circle()
-                                                       .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
-                                                       .frame(width: 5.5, height: 5.5)
-                                                       .offset(x: 0, y: -13)
-                                                       .opacity(1)
-                                                       .rotationEffect(.degrees(252))
+                                    .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
+                                    .frame(width: 5.5, height: 5.5)
+                                    .offset(x: 0, y: -13)
+                                    .opacity(1)
+                                    .rotationEffect(.degrees(252))
                             }
-                            .opacity(dim ? 1.0 : 0.2)
+                            .opacity(dim3 ? 1.0 : 0.2)
                             .animation(.easeIn(duration: 3.0))
                             .onTapGesture(count: 1){
-                                self.dim.toggle()
+                                self.dim3.toggle()
                             }
                     }
                     
-                    
                 }
+                }
+            Group{
+               
                 Group{
-                   
+                    
                     //                    Circle()
                     //                        .stroke()
                     //                        .foregroundColor(changed ? .white : .red)
@@ -625,16 +626,22 @@ struct angioletto: View{
                     //
                     //                    I cerchio
                     Circle()
-                                              .fill(Color(red: 0.294, green: 0.855, blue: 0.875))
-                                              .frame(width: 10.4, height: 10.4)
-                                              .offset(x: 0, y: -34)
-                        .opacity(0.2)
-                                              .rotationEffect(.degrees(337.5))
+                    .fill(Color(red: 0.294, green: 0.855, blue: 0.875))
+                    .frame(width: 13, height: 13)
+                    .offset(y: -64)
+                    .rotationEffect(.degrees(342))
+                    .opacity(1)
+                    Circle()
+                        .fill(Color(red: 0.294, green: 0.855, blue: 0.875))
+                        .frame(width: 10.4, height: 10.4)
+                        .offset(x: 0, y: -34)
+                        .opacity(1)
+                        .rotationEffect(.degrees(337.5))
                     Circle()
                         .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
                         .frame(width: 13, height: 13)
                         .offset(y: -64)
-                        .opacity(0.2)
+                        .opacity(1)
                     
                     
                     Circle()
@@ -642,7 +649,7 @@ struct angioletto: View{
                         .frame(width: 13, height: 13)
                         .offset(y: -64)
                         .rotationEffect(.degrees(36))
-                        .opacity(0.2)
+                        .opacity(1)
                     
                     
                     
@@ -651,14 +658,14 @@ struct angioletto: View{
                         .frame(width: 13, height: 13)
                         .offset(y: -64)
                         .rotationEffect(.degrees(72))
-                        .opacity(0.2)
+                        .opacity(1)
                     
                     Circle()
                         .fill(Color(red: 0.518, green: 0.58, blue: 0.851))
                         .frame(width: 13, height: 13)
                         .offset(y: -64)
                         .rotationEffect(.degrees(90))
-                        .opacity(0.2)
+                        .opacity(1)
                     
                     
                     
@@ -667,9 +674,9 @@ struct angioletto: View{
                         .frame(width: 13, height: 13)
                         .offset(y: -64)
                         .rotationEffect(.degrees(144))
-                        .opacity(0.2)
+                        .opacity(1)
                 }
-            }
+            
             
             
             
@@ -682,34 +689,34 @@ struct angioletto: View{
                         .frame(width: 13, height: 13)
                         .offset(y: -64)
                         .rotationEffect(.degrees(180))
-                        .opacity(0.2)
+                        .opacity(1)
                     Circle()
                         .fill(Color(red: 0.294, green: 0.855, blue: 0.875))
                         .frame(width: 13, height: 13)
                         .offset(y: -64)
                         .rotationEffect(.degrees(198))
-                        .opacity(0.2)
+                        .opacity(1)
                     
                     Circle()
                         .fill(Color(red: 0.573, green: 0.949, blue: 0.894))
                         .frame(width: 13, height: 13)
                         .offset(y: -64)
                         .rotationEffect(.degrees(234))
-                        .opacity(0.2)
-                   
+                        .opacity(1)
+                    
                     Circle()
                         .fill(Color(red: 0.651, green: 0.976, blue: 0.902))
                         .frame(width: 13, height: 13)
                         .offset(y: -64)
                         .rotationEffect(.degrees(270))
-                        .opacity(0.2)
-                   
+                        .opacity(1)
+                    
                     Circle()
                         .fill(Color(red: 0.573, green: 0.949, blue: 0.894))
                         .frame(width: 13, height: 13)
                         .offset(y: -64)
                         .rotationEffect(.degrees(306))
-                        .opacity(0.2)
+                        .opacity(1)
                 }
                 
             }
@@ -718,28 +725,28 @@ struct angioletto: View{
                 Group{
                     //                    II cerchio
                     Circle()
-                                            .fill(Color(red: 0.294, green: 0.855, blue: 0.875))
-                                            .frame(width: 11.7, height: 11.7)
-                                            .offset(x: 0, y: -48)
-                                            .rotationEffect(.degrees(270))
-                        .opacity(0.2)
+                        .fill(Color(red: 0.294, green: 0.855, blue: 0.875))
+                        .frame(width: 11.7, height: 11.7)
+                        .offset(x: 0, y: -48)
+                        .rotationEffect(.degrees(270))
+                        .opacity(1)
                     Circle()
                         .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
                         .frame(width: 11.7, height: 11.7)
                         .offset(x: 0, y: -48)
-                        .opacity(0.2)
+                        .opacity(1)
                     
                     Circle()
                         .fill(Color(red: 0.38, green: 0.651, blue: 0.855))
                         .frame(width: 11.7, height: 11.7)
                         .offset(x: 0, y: -48)
-                        .opacity(0.2)
+                        .opacity(1)
                         .rotationEffect(.degrees(36))
                     Circle()
                         .fill(Color(red: 0.392, green: 0.639, blue: 0.855))
                         .frame(width: 11.7, height: 11.7)
                         .offset(x: 0, y: -48)
-                        .opacity(0.2)
+                        .opacity(1)
                         .rotationEffect(.degrees(54))
                     
                     
@@ -747,21 +754,21 @@ struct angioletto: View{
                         .fill(Color(red: 0.518, green: 0.58, blue: 0.851))
                         .frame(width: 11.7, height: 11.7)
                         .offset(x: 0, y: -48)
-                        .opacity(0.2)
+                        .opacity(1)
                         .rotationEffect(.degrees(108))
                     Circle()
                         .fill(Color(red: 0.494, green: 0.592, blue: 0.851))
                         .frame(width: 11.7, height: 11.7)
                         .offset(x: 0, y: -48)
-                        .opacity(0.2)
+                        .opacity(1)
                         .rotationEffect(.degrees(126))
                     
                     Circle()
-                                .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
-                                      .frame(width: 11.7, height: 11.7)
-                                      .offset(x: 0, y: -48)
-                                          .opacity(0.2)
-                                      .rotationEffect(.degrees(252))
+                        .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
+                        .frame(width: 11.7, height: 11.7)
+                        .offset(x: 0, y: -48)
+                        .opacity(1)
+                        .rotationEffect(.degrees(252))
                     
                 }
             }
@@ -771,31 +778,31 @@ struct angioletto: View{
                         .fill(Color(red: 0.282, green: 0.694, blue: 0.855))
                         .frame(width: 11.7, height: 11.7)
                         .offset(x: 0, y: -48)
-                        .opacity(0.2)
+                        .opacity(1)
                         .rotationEffect(.degrees(162))
                     Circle()
                         .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
                         .frame(width: 11.7, height: 11.7)
                         .offset(x: 0, y: -48)
-                        .opacity(0.2)
+                        .opacity(1)
                         .rotationEffect(.degrees(180))
                     Circle()
                         .fill(Color(red: 0.294, green: 0.855, blue: 0.875))
                         .frame(width: 11.7, height: 11.7)
                         .offset(x: 0, y: -48)
-                        .opacity(0.2)
+                        .opacity(1)
                         .rotationEffect(.degrees(198))
                     Circle()
                         .fill(Color(red: 0.427, green: 0.898, blue: 0.886))
                         .frame(width: 11.7, height: 11.7)
                         .offset(x: 0, y: -48)
-                        .opacity(0.2)
+                        .opacity(1)
                         .rotationEffect(.degrees(216))
                     Circle()
                         .fill(Color(red: 0.573, green: 0.949, blue: 0.894))
                         .frame(width: 11.7, height: 11.7)
                         .offset(x: 0, y: -48)
-                        .opacity(0.2)
+                        .opacity(1)
                         .rotationEffect(.degrees(234))
                     
                     
@@ -803,19 +810,19 @@ struct angioletto: View{
                         .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
                         .frame(width: 11.7, height: 11.7)
                         .offset(x: 0, y: -48)
-                        .opacity(0.2)
+                        .opacity(1)
                         .rotationEffect(.degrees(288))
                     Circle()
                         .fill(Color(red: 0.573, green: 0.949, blue: 0.894))
                         .frame(width: 11.7, height: 11.7)
                         .offset(x: 0, y: -48)
-                        .opacity(0.2)
+                        .opacity(1)
                         .rotationEffect(.degrees(306))
                     Circle()
                         .fill(Color(red: 0.408, green: 0.89, blue: 0.882))
                         .frame(width: 11.7, height: 11.7)
                         .offset(x: 0, y: -48)
-                        .opacity(0.2)
+                        .opacity(1)
                         .rotationEffect(.degrees(324))
                 }
             }
@@ -823,46 +830,46 @@ struct angioletto: View{
                 Group{
                     //                    III cerchio
                     Circle()
-                    .fill(Color(red: 0.573, green: 0.949, blue: 0.894))
-                    .frame(width: 10.4, height: 10.4)
-                    .offset(x: 0, y: -34)
-                        .opacity(0.2)
-                    .rotationEffect(.degrees(315))
+                        .fill(Color(red: 0.573, green: 0.949, blue: 0.894))
+                        .frame(width: 10.4, height: 10.4)
+                        .offset(x: 0, y: -34)
+                        .opacity(1)
+                        .rotationEffect(.degrees(315))
                     Circle()
                         .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
                         .frame(width: 10.4, height: 10.4)
                         .offset(x: 0, y: -34)
-                        .opacity(0.2)
+                        .opacity(1)
                     Circle()
                         .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
                         .frame(width: 10.4, height: 10.4)
                         .offset(x: 0, y: -34)
-                        .opacity(0.2)
+                        .opacity(1)
                         .rotationEffect(.degrees(22.5))
                     Circle()
                         .fill(Color(red: 0.38, green: 0.651, blue: 0.855))
                         .frame(width: 10.4, height: 10.4)
                         .offset(x: 0, y: -34)
-                        .opacity(0.2)
+                        .opacity(1)
                         .rotationEffect(.degrees(45))
                     
                     Circle()
                         .fill(Color(red: 0.518, green: 0.58, blue: 0.851))
                         .frame(width: 10.4, height: 10.4)
                         .offset(x: 0, y: -34)
-                        .opacity(0.2)
+                        .opacity(1)
                         .rotationEffect(.degrees(90))
                     Circle()
                         .fill(Color(red: 0.518, green: 0.58, blue: 0.851))
                         .frame(width: 10.4, height: 10.4)
                         .offset(x: 0, y: -34)
-                        .opacity(0.2)
+                        .opacity(1)
                         .rotationEffect(.degrees(112.5))
                     Circle()
                         .fill(Color(red: 0.494, green: 0.592, blue: 0.851))
                         .frame(width: 10.4, height: 10.4)
                         .offset(x: 0, y: -34)
-                        .opacity(0.2)
+                        .opacity(1)
                         .rotationEffect(.degrees(135))
                     
                     
@@ -874,91 +881,97 @@ struct angioletto: View{
                         .fill(Color(red: 0.294, green: 0.855, blue: 0.875))
                         .frame(width: 10.4, height: 10.4)
                         .offset(x: 0, y: -34)
-                        .opacity(0.2)
+                        .opacity(1)
                         .rotationEffect(.degrees(202.5))
                     Circle()
                         .fill(Color(red: 0.427, green: 0.898, blue: 0.886))
                         .frame(width: 10.4, height: 10.4)
                         .offset(x: 0, y: -34)
-                        .opacity(0.2)
+                        .opacity(1)
                         .rotationEffect(.degrees(225))
-                   
+                    
                     Circle()
                         .fill(Color(red: 0.651, green: 0.976, blue: 0.902))
                         .frame(width: 10.4, height: 10.4)
                         .offset(x: 0, y: -34)
-                        .opacity(0.2)
+                        .opacity(1)
                         .rotationEffect(.degrees(270))
                     Circle()
                         .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
                         .frame(width: 10.4, height: 10.4)
                         .offset(x: 0, y: -34)
-                        .opacity(0.2)
+                        .opacity(1)
                         .rotationEffect(.degrees(292.5))
                     
                     //4 circle
                     Circle()
-                    .fill(Color(red: 0.518, green: 0.58, blue: 0.851))
+                    .fill(Color(red: 0.475, green: 0.6, blue: 0.851))
                     .frame(width: 7.5, height: 7.5)
                     .offset(x: 0, y: -22)
-                        .opacity(0.2)
-                    .rotationEffect(.degrees(120))
+                    .opacity(1)
+                    .rotationEffect(.degrees(96))
+                    Circle()
+                        .fill(Color(red: 0.518, green: 0.58, blue: 0.851))
+                        .frame(width: 7.5, height: 7.5)
+                        .offset(x: 0, y: -22)
+                        .opacity(1)
+                        .rotationEffect(.degrees(120))
                     Circle()
                         .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
                         .frame(width: 7.5, height: 7.5)
                         .offset(x: 0, y: -22)
-                        .opacity(0.2)
+                        .opacity(1)
                         .rotationEffect(.degrees(24))
                     
                     Circle()
                         .fill(Color(red: 0.392, green: 0.639, blue: 0.855))
                         .frame(width: 7.5, height: 7.5)
                         .offset(x: 0, y: -22)
-                        .opacity(0.2)
+                        .opacity(1)
                         .rotationEffect(.degrees(72))
                 }
             }
             ZStack{
                 Group{
-                  
+                    
                     
                     Circle()
                         .fill(Color(red: 0.502, green: 0.588, blue: 0.851))
                         .frame(width: 7.5, height: 7.5)
                         .offset(x: 0, y: -22)
-                        .opacity(0.2)
+                        .opacity(1)
                         .rotationEffect(.degrees(144))
                     
                     Circle()
                         .fill(Color(red: 0.294, green: 0.855, blue: 0.875))
                         .frame(width: 7.5, height: 7.5)
                         .offset(x: 0, y: -22)
-                        .opacity(0.2)
+                        .opacity(1)
                         .rotationEffect(.degrees(192))
                     Circle()
                         .fill(Color(red: 0.427, green: 0.898, blue: 0.886))
                         .frame(width: 7.5, height: 7.5)
                         .offset(x: 0, y: -22)
-                        .opacity(0.2)
+                        .opacity(1)
                         .rotationEffect(.degrees(216))
                     Circle()
                         .fill(Color(red: 0.573, green: 0.949, blue: 0.894))
                         .frame(width: 7.5, height: 7.5)
                         .offset(x: 0, y: -22)
-                        .opacity(0.2)
+                        .opacity(1)
                         .rotationEffect(.degrees(240))
                     Circle()
                         .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
                         .frame(width: 7.5, height: 7.5)
                         .offset(x: 0, y: -22)
-                        .opacity(0.2)
+                        .opacity(1)
                         .rotationEffect(.degrees(264))
-                   
+                    
                     Circle()
                         .fill(Color(red: 0.573, green: 0.949, blue: 0.894))
                         .frame(width: 7.5, height: 7.5)
                         .offset(x: 0, y: -22)
-                        .opacity(0.2)
+                        .opacity(1)
                         .rotationEffect(.degrees(312))
                 }
             }
@@ -971,7 +984,7 @@ struct angioletto: View{
                         .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
                         .frame(width: 5.5, height: 5.5)
                         .offset(x: 0, y: -13)
-                        .opacity(0.2)
+                        .opacity(1)
                     
                     
                     
@@ -979,24 +992,31 @@ struct angioletto: View{
                         .fill(Color(red: 0.502, green: 0.588, blue: 0.851))
                         .frame(width: 5.5, height: 5.5)
                         .offset(x: 0, y: -13)
-                        .opacity(0.2)
+                        .opacity(1)
                         .rotationEffect(.degrees(144))
                     Circle()
                         .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
                         .frame(width: 5.5, height: 5.5)
                         .offset(x: 0, y: -13)
-                        .opacity(0.2)
+                        .opacity(1)
                         .rotationEffect(.degrees(180))
                     Circle()
                         .fill(Color(red: 0.427, green: 0.898, blue: 0.886))
                         .frame(width: 5.5, height: 5.5)
                         .offset(x: 0, y: -13)
-                        .opacity(0.2)
+                        .opacity(1)
                         .rotationEffect(.degrees(216))
                 }
             }
-            
+            }
+            .opacity(dim4 ? 1.0 : 0.2)
+            .animation(.easeIn(duration: 3.0))
+            .onLongPressGesture(minimumDuration: 2.0){
+                self.dim4.toggle()
+            }
+             
         }
+        
     }
 }
 
