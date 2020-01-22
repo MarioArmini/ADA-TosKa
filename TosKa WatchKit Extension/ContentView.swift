@@ -326,6 +326,8 @@ struct ContentView: View {
                     Text(firstMessage)
                         .fontWeight(.semibold)
                         .foregroundColor(Color(red: 0.69, green: 0.988, blue: 0.922))
+                    Text("Breathe").fontWeight(.semibold)
+                        .offset(y: +70).foregroundColor(Color(red: 0.69, green: 0.988, blue: 0.922))
                 }
                 .onTapGesture {
                     self.changed.toggle()
@@ -1005,6 +1007,6 @@ struct angioletto: View{
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        angioletto()
+        ContentView()
     }
 }
