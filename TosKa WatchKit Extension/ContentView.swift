@@ -1044,14 +1044,6 @@ struct angioletto: View{
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        return Group {
-            ContentView()
-            .previewDevice("Apple Watch Series 5 - 40mm")
-            
-            ContentView()
-            .previewDevice("Apple Watch Series 5 - 44mm")
-        }
-          
-        
+        ContentView()
     }
 }
