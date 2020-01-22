@@ -1060,7 +1060,7 @@ struct angioletto: View{
             }
              Text(self.nameActivity)
                                .fontWeight(.semibold)
-                               .offset(y: +100)
+                               .offset(y: +90)
                                .foregroundColor(Color(red: 0.69, green: 0.988, blue: 0.922))
            
             
