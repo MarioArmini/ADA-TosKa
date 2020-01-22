@@ -12,7 +12,7 @@ import SwiftUI
 
 
 struct ContentView: View {
-//    State per mostrare l'alert 
+    //    State per mostrare l'alert
     @State private var show_alert: Bool = false
     
     @State var seconds = 0
@@ -43,6 +43,7 @@ struct ContentView: View {
     
     // First message on the screen
     @State var firstMessage = "READY"
+    @State var nameActivity = "Breathe"
     
     // Timer
     let timer = Timer.publish(every: 1, on: .current, in: .common)
@@ -321,12 +322,12 @@ struct ContentView: View {
                             }
                             else if self.seconds == 20 {
                                 self.timer.connect().cancel()
-//                                Imposto show_modal come toggle(false and true)
+                                //                                Imposto show_modal come toggle(false and true)
                                 self.show_alert.toggle()
-//                                lo setto come true
+                                //                                lo setto come true
                                 self.show_alert = true
                                 
-                                
+                                self.nameActivity = ""
                                 
                             }
                             
@@ -335,8 +336,8 @@ struct ContentView: View {
                         Text(firstMessage)
                             .fontWeight(.semibold)
                             .foregroundColor(Color(red: 0.69, green: 0.988, blue: 0.922))
-                        Text("Breathe").fontWeight(.semibold)
-                                               .offset(y: +70).foregroundColor(Color(red: 0.69, green: 0.988, blue: 0.922))
+                        Text(self.nameActivity).fontWeight(.semibold)
+                            .offset(y: +70).foregroundColor(Color(red: 0.69, green: 0.988, blue: 0.922))
                     }
                     .onTapGesture {
                         self.changed.toggle()
@@ -344,9 +345,10 @@ struct ContentView: View {
                     }
                     
                 }
-//                Nascondo il back bar button
+                
+                //                Nascondo il back bar button
             }.navigationBarBackButtonHidden(true)
-//            Quando show_modal diventa true AlertView si presenta
+            //            Quando show_modal diventa true AlertView si presenta
             AlertView_1_2(show: self.$show_alert)
         }
     }
@@ -354,27 +356,28 @@ struct ContentView: View {
 }
 
 struct AlertView_1_2: View {
-//    binding Per mostrare la view
+    //    binding Per mostrare la view
     @Binding var show: Bool
-     
+    
     
     var body: some View {
         ZStack{
-        VStack{
-            Text("How do you Feel? ")
-            Spacer()
-            NavigationLink(destination: angioletto()){
-                Text("Continue")
-            }
-            NavigationLink(destination: ContentView()){
-            Text("Repeat")
+            VStack{
+                Text("How do you Feel? ")
+                Spacer()
+                
+                NavigationLink(destination: angioletto()){
+                    Text("Continue")
+                }
+                NavigationLink(destination: ContentView()){
+                    Text("Repeat")
+                }
+                Spacer()
+                
             }
         }
-//            Aggiunto background per non far vedere la view precendete
         .background(Color.black)
-//            Offset dove sposto con il binding la view da 500 a 0
         .offset(x: self.show ? 0 : 500, y: 0)
-        }
     }
 }
 
@@ -384,6 +387,8 @@ struct angioletto: View{
     
     @State var changed = false
     @State private var dim = false
+    @State var nameActivity = "Blow"
+    
     var body: some View{
         ZStack{
             //            gruppo cerchi del primo settore
@@ -655,14 +660,6 @@ struct angioletto: View{
                     
                 }
                 Group{
-                    
-                    //                    Circle()
-                    //                        .stroke()
-                    //                        .foregroundColor(changed ? .white : .red)
-                    //                        .frame(width: 130, height: 130)
-                    //                        .opacity(0)
-                    //
-                    //                    I cerchio
                     Circle()
                         .fill(Color(red: 0.294, green: 0.855, blue: 0.875))
                         .frame(width: 10.4, height: 10.4)
@@ -1003,37 +1000,40 @@ struct angioletto: View{
             }
             
             ZStack{
-                Group{
-                    
-                    //                    V cerchio
-                    Circle()
-                        .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
-                        .frame(width: 5.5, height: 5.5)
-                        .offset(x: 0, y: -13)
-                        .opacity(0.2)
-                    
-                    
-                    
-                    Circle()
-                        .fill(Color(red: 0.502, green: 0.588, blue: 0.851))
-                        .frame(width: 5.5, height: 5.5)
-                        .offset(x: 0, y: -13)
-                        .opacity(0.2)
-                        .rotationEffect(.degrees(144))
-                    Circle()
-                        .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
-                        .frame(width: 5.5, height: 5.5)
-                        .offset(x: 0, y: -13)
-                        .opacity(0.2)
-                        .rotationEffect(.degrees(180))
-                    Circle()
-                        .fill(Color(red: 0.427, green: 0.898, blue: 0.886))
-                        .frame(width: 5.5, height: 5.5)
-                        .offset(x: 0, y: -13)
-                        .opacity(0.2)
-                        .rotationEffect(.degrees(216))
-                    
+                VStack{
+                    Group{
+                        Circle()
+                            .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
+                            .frame(width: 5.5, height: 5.5)
+                            .offset(x: 0, y: -13)
+                            .opacity(0.2)
+                        
+                        Circle()
+                            .fill(Color(red: 0.502, green: 0.588, blue: 0.851))
+                            .frame(width: 5.5, height: 5.5)
+                            .offset(x: 0, y: -13)
+                            .opacity(0.2)
+                            .rotationEffect(.degrees(144))
+                        Circle()
+                            .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
+                            .frame(width: 5.5, height: 5.5)
+                            .offset(x: 0, y: -13)
+                            .opacity(0.2)
+                            .rotationEffect(.degrees(180))
+                        Circle()
+                            .fill(Color(red: 0.427, green: 0.898, blue: 0.886))
+                            .frame(width: 5.5, height: 5.5)
+                            .offset(x: 0, y: -13)
+                            .opacity(0.2)
+                            .rotationEffect(.degrees(216))
+                        
+                    }
+                    Text(self.nameActivity)
+                        .fontWeight(.semibold)
+                        .offset(y: +65)
+                        .foregroundColor(Color(red: 0.69, green: 0.988, blue: 0.922))
                 }
+                
             }.navigationBarBackButtonHidden(true)
             
         }
