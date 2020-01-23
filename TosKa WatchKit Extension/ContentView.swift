@@ -1028,11 +1028,6 @@ struct angioletto: View{
                                     .frame(width: 13, height: 13)
                                     .offset(x: 0, y: -64)
                                     .rotationEffect(.degrees(288))
-                                
-                                
-                                
-                                
-                                
                                 Circle()
                                     .fill(Color(red: 0.573, green: 0.949, blue: 0.894))
                                     .frame(width: 10.4, height: 10.4)
@@ -1069,19 +1064,11 @@ struct angioletto: View{
                 }
             }
             
-            
-            
             Text(self.nameActivity)
                 .fontWeight(.semibold)
                 .offset(y: +90)
                 .foregroundColor(Color(red: 0.69, green: 0.988, blue: 0.922))
-            
-            
-            
         }
-        
-        
-        
         
     }
 }
