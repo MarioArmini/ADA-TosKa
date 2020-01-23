@@ -380,9 +380,6 @@ struct AlertView_1_2: View {
         .offset(x: self.show ? 0 : 500, y: 0)
     }
 }
-
-
-
 struct angioletto: View{
     
     @State var changed = false
@@ -391,24 +388,442 @@ struct angioletto: View{
     @State private var dim2 = false
     @State private var dim3 = false
     @State private var dim4 = false
+     @State private var half = false
+
     @State var nameActivity = "Blow"
     var body: some View{
         ZStack{
+           Group{
+                          Rectangle()
+                              .fill(Color(.black))
+                          .frame(width: 200, height: 200)
+                          .offset(y: 10)
+                          .rotationEffect(.degrees(342))
+                            .opacity(0.1)
+                         
+                          Group{
+                              
+                              //                    Circle()
+                              //                        .stroke()
+                              //                        .foregroundColor(changed ? .white : .red)
+                              //                        .frame(width: 130, height: 130)
+                              //                        .opacity(0)
+                              //
+                              //                    I cerchio
+                              Circle()
+                                  .fill(Color(red: 0.294, green: 0.855, blue: 0.875))
+                              .frame(width: 13, height: 13)
+                              .offset(y: -64)
+                              .rotationEffect(.degrees(342))
+                              .opacity(1)
+                              Circle()
+                                  .fill(Color(red: 0.294, green: 0.855, blue: 0.875))
+                                  .frame(width: 11, height: 11)
+                                  .opacity(1)
+                                  .offset(y: -34)
+                                  .rotationEffect(.degrees(337.5))
+                              Circle()
+                                  .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
+                                  .frame(width: 13, height: 13)
+                                  .offset(y: -64)
+                                  .opacity(1)
+                              
+                              
+                              Circle()
+                                  .fill(Color(red: 0.38, green: 0.651, blue: 0.855))
+                                  .frame(width: 13, height: 13)
+                                  .offset(y: -64)
+                                  .rotationEffect(.degrees(36))
+                                  .opacity(1)
+                              
+                              
+                              
+                              Circle()
+                                  .fill(Color(red: 0.475, green: 0.6, blue: 0.851))
+                                  .frame(width: 13, height: 13)
+                                  .offset(y: -64)
+                                  .rotationEffect(.degrees(72))
+                                  .opacity(1)
+                              
+                              Circle()
+                                  .fill(Color(red: 0.518, green: 0.58, blue: 0.851))
+                                  .frame(width: 13, height: 13)
+                                  .offset(y: -64)
+                                  .rotationEffect(.degrees(90))
+                                  .opacity(1)
+                              
+                              
+                              
+                              Circle()
+                                  .fill(Color(red: 0.502, green: 0.588, blue: 0.851))
+                                  .frame(width: 13, height: 13)
+                                  .offset(y: -64)
+                                  .rotationEffect(.degrees(144))
+                                  .opacity(1)
+                          }
+                      
+                      
+                      
+                      
+                      
+                      ZStack{
+                          Group{
+                              
+                              Circle()
+                                  .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
+                                  .frame(width: 13, height: 13)
+                                  .offset(y: -64)
+                                  .rotationEffect(.degrees(180))
+                                  .opacity(1)
+                              Circle()
+                                  .fill(Color(red: 0.294, green: 0.855, blue: 0.875))
+                                  .frame(width: 13, height: 13)
+                                  .offset(y: -64)
+                                  .rotationEffect(.degrees(198))
+                                  .opacity(1)
+                              
+                              Circle()
+                                  .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
+                                  .frame(width: 13, height: 13)
+                                  .offset(y: -64)
+                                  .opacity(1)
+                                  .rotationEffect(.degrees(235))
+                                  
+                                  
+                              
+                              Circle()
+                                  .fill(Color(red: 0.651, green: 0.976, blue: 0.902))
+                                  .frame(width: 13, height: 13)
+                                  .offset(y: -64)
+                                  .opacity(1)
+                                  .rotationEffect(.degrees(270))
+                              
+                                  
+                              
+                              Circle()
+                                  .fill(Color(red: 0.573, green: 0.949, blue: 0.894))
+                                  .frame(width: 13, height: 13)
+                                  .offset(y: -64)
+                                  .rotationEffect(.degrees(306))
+                                  .opacity(1)
+                          }
+                          
+                      }
+                      
+                      ZStack{
+                          Group{
+                              //                    II cerchio
+                              Circle()
+                                  .fill(Color(red: 0.294, green: 0.855, blue: 0.875))
+                                  .frame(width: 11.7, height: 11.7)
+                                  .offset(x: 0, y: -48)
+                                  .opacity(1)
+                                  .rotationEffect(.degrees(270))
+                                  
+                              Circle()
+                                  .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
+                                  .frame(width: 11.7, height: 11.7)
+                                  .offset(x: 0, y: -48)
+                                  .opacity(1)
+                                  .rotationEffect(.degrees(252))
+                              Circle()
+                                  .fill(Color(red: 0.38, green: 0.651, blue: 0.855))
+                                  .frame(width: 11.7, height: 11.7)
+                                  .offset(x: 0, y: -48)
+                                  .opacity(1)
+                                  .rotationEffect(.degrees(36))
+                              Circle()
+                                  .fill(Color(red: 0.392, green: 0.639, blue: 0.855))
+                                  .frame(width: 11.7, height: 11.7)
+                                  .offset(x: 0, y: -48)
+                                  .opacity(1)
+                                  .rotationEffect(.degrees(54))
+                              
+                              
+                              Circle()
+                                  .fill(Color(red: 0.518, green: 0.58, blue: 0.851))
+                                  .frame(width: 11.7, height: 11.7)
+                                  .offset(x: 0, y: -48)
+                                  .opacity(1)
+                                  .rotationEffect(.degrees(108))
+                              Circle()
+                                  .fill(Color(red: 0.494, green: 0.592, blue: 0.851))
+                                  .frame(width: 11.7, height: 11.7)
+                                  .offset(x: 0, y: -48)
+                                  .opacity(1)
+                                  .rotationEffect(.degrees(126))
+                              
+                              Circle()
+                                  .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
+                                  .frame(width: 11.7, height: 11.7)
+                                  .opacity(1)
+                                  .offset(x: 0, y: -48)
+                                  .rotationEffect(.degrees(0))
+                              
+                          }
+                      }
+                      ZStack{
+                          Group{
+                              Circle()
+                                  .fill(Color(red: 0.282, green: 0.694, blue: 0.855))
+                                  .frame(width: 11.7, height: 11.7)
+                                  .offset(x: 0, y: -48)
+                                  .opacity(1)
+                                  .rotationEffect(.degrees(162))
+                              Circle()
+                                  .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
+                                  .frame(width: 11.7, height: 11.7)
+                                  .offset(x: 0, y: -48)
+                                  .opacity(1)
+                                  .rotationEffect(.degrees(180))
+                              Circle()
+                                  .fill(Color(red: 0.294, green: 0.855, blue: 0.875))
+                                  .frame(width: 11.7, height: 11.7)
+                                  .offset(x: 0, y: -48)
+                                  .opacity(1)
+                                  .rotationEffect(.degrees(198))
+                              Circle()
+                                  .fill(Color(red: 0.427, green: 0.898, blue: 0.886))
+                                  .frame(width: 11.7, height: 11.7)
+                                  .offset(x: 0, y: -48)
+                                  .opacity(1)
+                                  .rotationEffect(.degrees(216))
+                              Circle()
+                                  .fill(Color(red: 0.573, green: 0.949, blue: 0.894))
+                                  .frame(width: 11.7, height: 11.7)
+                                  .offset(x: 0, y: -48)
+                                  .opacity(1)
+                                  .rotationEffect(.degrees(234))
+                              
+                              
+                              Circle()
+                                  .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
+                                  .frame(width: 11.7, height: 11.7)
+                                  .offset(x: 0, y: -48)
+                                  .opacity(1)
+                                  .rotationEffect(.degrees(288))
+                              Circle()
+                                  .fill(Color(red: 0.573, green: 0.949, blue: 0.894))
+                                  .frame(width: 11.7, height: 11.7)
+                                  .offset(x: 0, y: -48)
+                                  .opacity(1)
+                                  .rotationEffect(.degrees(306))
+                              Circle()
+                                  .fill(Color(red: 0.408, green: 0.89, blue: 0.882))
+                                  .frame(width: 11.7, height: 11.7)
+                                  .offset(x: 0, y: -48)
+                                  .opacity(1)
+                                  .rotationEffect(.degrees(324))
+                          }
+                      }
+                      ZStack{
+                          Group{
+                              //                    III cerchio
+                              Circle()
+                                  .fill(Color(red: 0.573, green: 0.949, blue: 0.894))
+                                  .frame(width: 10.4, height: 10.4)
+                                  .opacity(1)
+                                  .offset(x: 0, y: -34)
+                                  .rotationEffect(.degrees(315))
+                              Circle()
+                                  .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
+                                  .frame(width: 10.4, height: 10.4)
+                                  .offset(x: 0, y: -34)
+                                  .opacity(1)
+                              Circle()
+                                  .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
+                                  .frame(width: 10.4, height: 10.4)
+                                  .offset(x: 0, y: -34)
+                                  .opacity(1)
+                                  .rotationEffect(.degrees(22.5))
+                              Circle()
+                                  .fill(Color(red: 0.38, green: 0.651, blue: 0.855))
+                                  .frame(width: 10.4, height: 10.4)
+                                  .offset(x: 0, y: -34)
+                                  .opacity(1)
+                                  .rotationEffect(.degrees(45))
+                              
+                              Circle()
+                                  .fill(Color(red: 0.518, green: 0.58, blue: 0.851))
+                                  .frame(width: 10.4, height: 10.4)
+                                  .offset(x: 0, y: -34)
+                                  .opacity(1)
+                                  .rotationEffect(.degrees(90))
+                              Circle()
+                                  .fill(Color(red: 0.518, green: 0.58, blue: 0.851))
+                                  .frame(width: 10.4, height: 10.4)
+                                  .offset(x: 0, y: -34)
+                                  .opacity(1)
+                                  .rotationEffect(.degrees(112.5))
+                              Circle()
+                                  .fill(Color(red: 0.494, green: 0.592, blue: 0.851))
+                                  .frame(width: 10.4, height: 10.4)
+                                  .offset(x: 0, y: -34)
+                                  .opacity(1)
+                                  .rotationEffect(.degrees(135))
+                              
+                              
+                          }
+                      }
+                      ZStack{
+                          Group{
+                              Circle()
+                                  .fill(Color(red: 0.294, green: 0.855, blue: 0.875))
+                                  .frame(width: 10.4, height: 10.4)
+                                  .offset(x: 0, y: -34)
+                                  .opacity(1)
+                                  .rotationEffect(.degrees(202.5))
+                              Circle()
+                                  .fill(Color(red: 0.427, green: 0.898, blue: 0.886))
+                                  .frame(width: 10.4, height: 10.4)
+                                  .offset(x: 0, y: -34)
+                                  .opacity(1)
+                                  .rotationEffect(.degrees(225))
+                              
+                              Circle()
+                                  .fill(Color(red: 0.651, green: 0.976, blue: 0.902))
+                                  .frame(width: 10.4, height: 10.4)
+                                  .offset(x: 0, y: -34)
+                                  .opacity(1)
+                                  .rotationEffect(.degrees(270))
+                              Circle()
+                                  .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
+                                  .frame(width: 10.4, height: 10.4)
+                                  .offset(x: 0, y: -34)
+                                  .opacity(1)
+                                  .rotationEffect(.degrees(292.5))
+                              
+                              //4 circle
+                              Circle()
+                              .fill(Color(red: 0.475, green: 0.6, blue: 0.851))
+                              .frame(width: 7.5, height: 7.5)
+                              .offset(x: 0, y: -22)
+                              .opacity(1)
+                              .rotationEffect(.degrees(96))
+                              Circle()
+                                  .fill(Color(red: 0.518, green: 0.58, blue: 0.851))
+                                  .frame(width: 7.5, height: 7.5)
+                                  .offset(y: -22)
+                                  .opacity(1)
+                                  .rotationEffect(.degrees(120))
+                              Circle()
+                                  .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
+                                  .frame(width: 7.5, height: 7.5)
+                                  .offset(x: 0, y: -22)
+                                  .opacity(1)
+                                  .rotationEffect(.degrees(24))
+                              
+                              Circle()
+                                  .fill(Color(red: 0.392, green: 0.639, blue: 0.855))
+                                  .frame(width: 7.5, height: 7.5)
+                                  .offset(x: 0, y: -22)
+                                  .opacity(1)
+                                  .rotationEffect(.degrees(72))
+                          }
+                      }
+                      ZStack{
+                          Group{
+                              
+                              
+                              Circle()
+                                  .fill(Color(red: 0.502, green: 0.588, blue: 0.851))
+                                  .frame(width: 7.5, height: 7.5)
+                                  .offset(x: 0, y: -22)
+                                  .opacity(1)
+                                  .rotationEffect(.degrees(144))
+                              
+                              Circle()
+                                  .fill(Color(red: 0.294, green: 0.855, blue: 0.875))
+                                  .frame(width: 7.5, height: 7.5)
+                                  .offset(x: 0, y: -22)
+                                  .opacity(1)
+                                  .rotationEffect(.degrees(192))
+                              Circle()
+                                  .fill(Color(red: 0.427, green: 0.898, blue: 0.886))
+                                  .frame(width: 7.5, height: 7.5)
+                                  .offset(x: 0, y: -22)
+                                  .opacity(1)
+                                  .rotationEffect(.degrees(216))
+                              Circle()
+                                  .fill(Color(red: 0.573, green: 0.949, blue: 0.894))
+                                  .frame(width: 7.5, height: 7.5)
+                                  .offset(x: 0, y: -22)
+                                  .opacity(1)
+                                  .rotationEffect(.degrees(240))
+                              Circle()
+                                  .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
+                                  .frame(width: 7.5, height: 7.5)
+                                  .offset(x: 0, y: -22)
+                                  .opacity(1)
+                                  .rotationEffect(.degrees(264))
+                              
+                              Circle()
+                                  .fill(Color(red: 0.573, green: 0.949, blue: 0.894))
+                                  .frame(width: 7.5, height: 7.5)
+                                  .offset(x: 0, y: -22)
+                                  .opacity(1)
+                                  .rotationEffect(.degrees(312))
+                          }
+                      }
+                      
+                          Group{
+                              
+                              //                    V cerchio
+                              Circle()
+                                  .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
+                                  .frame(width: 5.5, height: 5.5)
+                                  .offset(x: 0, y: -13)
+                                  .opacity(1)
+                              
+                              
+                              
+                              Circle()
+                                  .fill(Color(red: 0.502, green: 0.588, blue: 0.851))
+                                  .frame(width: 5.5, height: 5.5)
+                                  .offset(x: 0, y: -13)
+                                  .opacity(1)
+                                  .rotationEffect(.degrees(144))
+                              Circle()
+                                  .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
+                                  .frame(width: 5.5, height: 5.5)
+                                  .offset(x: 0, y: -13)
+                                  .opacity(1)
+                                  .rotationEffect(.degrees(180))
+                              Circle()
+                                  .fill(Color(red: 0.427, green: 0.898, blue: 0.886))
+                                  .frame(width: 5.5, height: 5.5)
+                                  .offset(x: 0, y: -13)
+                                  .opacity(1)
+                                  .rotationEffect(.degrees(216))
+                                  
+                      }
+                  
+                          
+                      }
+                      .opacity(dim4 ? 1.0 : 0.2)
+           .scaleEffect(half ? 1.0 : 0.9)
+                      .animation(.easeIn(duration: 3))
+                      .onLongPressGesture(minimumDuration: 2){
+                          self.dim4.toggle()
+                        self.half.toggle()
+            }
            
             //            gruppo cerchi del primo settore
             Group{
-                Rectangle()
-                                              .frame(width: 200, height: 200)
-                                              .foregroundColor(Color.black)
-                                              .opacity(1)
+               
                 
                 ZStack{
+                   
+                                               
+                                          
                     Group{
-                        Capsule()
-                            .frame(width: 90 , height: 120)
-                            .foregroundColor(Color.black)
-                            .offset(x: 0, y: -60)
-                            .opacity(1)
+                       Circle()
+                                                                     .fill(Color(.black
+                                                ))
+                                                                                            .frame(width: 65, height: 65)
+                                                       .offset(y: -45)
+                                                                                            
+                        .opacity(0.1)
                         Circle()
                             .fill(Color(red: 0.282, green: 0.694, blue: 0.855, opacity: 100.0))
                             .frame(width: 13, height: 13)
@@ -454,6 +869,7 @@ struct angioletto: View{
                             .rotationEffect(.degrees(288))
                     }
                     .opacity(dim ? 1.0 : 0.2)
+                    .scaleEffect(half ? 1.0 : 0.9)
                     .animation(.easeIn(duration: 3.0))
                     .onTapGesture(count: 1){
                         self.dim.toggle()
@@ -461,11 +877,12 @@ struct angioletto: View{
                     //                    gruppo cerchi secondo settore
                     ZStack{
                         Group{
-                            Capsule()
-                                .frame(width: 90 , height: 120)
-                                .foregroundColor(Color.black)
-                                .offset(x: 0, y: -60)
-                                .rotationEffect(.degrees(90))
+                            Circle()
+                                                                                                .fill(Color(.black))
+                                                                                                                       .frame(width: 65, height: 65)
+                                .offset(x: 55, y: 0)
+                                                                                                                       
+                                .opacity(0.1)
                             
                             
                             Circle()
@@ -520,6 +937,7 @@ struct angioletto: View{
                             
                         }
                         .opacity(dim1 ? 1.0 : 0.2)
+                        .scaleEffect(half ? 1.0 : 0.9)
                         .animation(.easeIn(duration: 3.0))
                         .onTapGesture(count: 1){
                             self.dim1.toggle()
@@ -529,12 +947,13 @@ struct angioletto: View{
                     //                    gruppo cerchi terzo settore
                     ZStack{
                         Group{
-                            Capsule()
-                                .frame(width: 90 , height: 120)
-                                .foregroundColor(Color.black)
-                                .offset(x: 0, y: -60)
-                                .rotationEffect(.degrees(180))
-                                .opacity(1)
+                            Circle()
+                                                                                                .fill(Color(.black))
+                                                                                                                       .frame(width: 65, height: 65)
+                                .offset(x: 3, y: 55)
+                                                                                                                       
+                                .opacity(0.1)
+                            
                             Circle()
                                 .fill(Color(red: 0.282, green: 0.694, blue: 0.855))
                                 .frame(width: 13, height: 13)
@@ -586,6 +1005,7 @@ struct angioletto: View{
                                 .rotationEffect(.degrees(157.5))
                         }
                         .opacity(dim2 ? 1.0 : 0.2)
+                        .scaleEffect(half ? 1.0 : 0.9)
                         .animation(.easeIn(duration: 3.0))
                         .onTapGesture(count: 1){
                             self.dim2.toggle()
@@ -595,12 +1015,13 @@ struct angioletto: View{
                     ZStack
                         {
                             Group{
-                                Capsule()
-                                    .frame(width: 90 , height: 120)
-                                    .foregroundColor(Color.black)
-                                    .offset(x: 0, y: -60)
-                                    .rotationEffect(.degrees(270))
-                                    .opacity(1)
+                                Circle()
+                                                                                                                               .fill(Color(.black))
+                                                                                                                                                      .frame(width: 65, height: 65)
+                                                               .offset(x: -55, y: 0)
+                                                                                                                                                      
+                                    .opacity(0.1)
+                                    
                                 Circle()
                                     .fill(Color(red: 0.573, green: 0.949, blue: 0.894))
                                     .frame(width: 5.5, height: 5.5)
@@ -610,13 +1031,13 @@ struct angioletto: View{
                                 Circle()
                                     .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
                                     .frame(width: 13, height: 13)
-                                    .offset(y: -64)
+                                    .offset(x: 0, y: -64)
                                     .rotationEffect(.degrees(252))
                                     .opacity(1)
                                 Circle()
                                     .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
                                     .frame(width: 13, height: 13)
-                                    .offset(y: -64)
+                                    .offset(x: 0, y: -64)
                                     .rotationEffect(.degrees(288))
                                 
                                 
@@ -648,6 +1069,7 @@ struct angioletto: View{
                                     .opacity(1)
                                     .rotationEffect(.degrees(252))
                             }
+                            .scaleEffect(half ? 1.0 : 0.9)
                             .opacity(dim3 ? 1.0 : 0.2)
                             .animation(.easeIn(duration: 3.0))
                             .onTapGesture(count: 1){
@@ -657,407 +1079,9 @@ struct angioletto: View{
                     
                 }
                 }
-            Group{
-               
-                Group{
-                    
-                    //                    Circle()
-                    //                        .stroke()
-                    //                        .foregroundColor(changed ? .white : .red)
-                    //                        .frame(width: 130, height: 130)
-                    //                        .opacity(0)
-                    //
-                    //                    I cerchio
-                    Circle()
-                    .fill(Color(red: 0.294, green: 0.855, blue: 0.875))
-                    .frame(width: 13, height: 13)
-                    .offset(y: -64)
-                    .rotationEffect(.degrees(342))
-                    .opacity(1)
-                    Circle()
-                        .fill(Color(red: 0.294, green: 0.855, blue: 0.875))
-                        .frame(width: 10.4, height: 10.4)
-                        .opacity(1)
-                        .opacity(1)
-                        .rotationEffect(.degrees(337.5))
-                    Circle()
-                        .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
-                        .frame(width: 13, height: 13)
-                        .offset(y: -64)
-                        .opacity(1)
-                    
-                    
-                    Circle()
-                        .fill(Color(red: 0.38, green: 0.651, blue: 0.855))
-                        .frame(width: 13, height: 13)
-                        .offset(y: -64)
-                        .rotationEffect(.degrees(36))
-                        .opacity(1)
-                    
-                    
-                    
-                    Circle()
-                        .fill(Color(red: 0.475, green: 0.6, blue: 0.851))
-                        .frame(width: 13, height: 13)
-                        .offset(y: -64)
-                        .rotationEffect(.degrees(72))
-                        .opacity(1)
-                    
-                    Circle()
-                        .fill(Color(red: 0.518, green: 0.58, blue: 0.851))
-                        .frame(width: 13, height: 13)
-                        .offset(y: -64)
-                        .rotationEffect(.degrees(90))
-                        .opacity(1)
-                    
-                    
-                    
-                    Circle()
-                        .fill(Color(red: 0.502, green: 0.588, blue: 0.851))
-                        .frame(width: 13, height: 13)
-                        .offset(y: -64)
-                        .rotationEffect(.degrees(144))
-                        .opacity(1)
-                }
+           
             
             
-            
-            
-            
-            ZStack{
-                Group{
-                    
-                    Circle()
-                        .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
-                        .frame(width: 13, height: 13)
-                        .offset(y: -64)
-                        .rotationEffect(.degrees(180))
-                        .opacity(1)
-                    Circle()
-                        .fill(Color(red: 0.294, green: 0.855, blue: 0.875))
-                        .frame(width: 13, height: 13)
-                        .offset(y: -64)
-                        .rotationEffect(.degrees(198))
-                        .opacity(1)
-                    
-                    Circle()
-                        .fill(Color(red: 0.573, green: 0.949, blue: 0.894))
-                        .frame(width: 13, height: 13)
-                        .offset(y: -64)
-                        .opacity(1)
-                        .opacity(1)
-                    
-                    Circle()
-                        .fill(Color(red: 0.651, green: 0.976, blue: 0.902))
-                        .frame(width: 13, height: 13)
-                        .offset(y: -64)
-                        .opacity(1)
-                        .opacity(1)
-                    
-                    Circle()
-                        .fill(Color(red: 0.573, green: 0.949, blue: 0.894))
-                        .frame(width: 13, height: 13)
-                        .offset(y: -64)
-                        .rotationEffect(.degrees(306))
-                        .opacity(1)
-                }
-                
-            }
-            
-            ZStack{
-                Group{
-                    //                    II cerchio
-                    Circle()
-                        .fill(Color(red: 0.294, green: 0.855, blue: 0.875))
-                        .frame(width: 11.7, height: 11.7)
-                        .offset(x: 0, y: -48)
-                        .opacity(1)
-                        .opacity(1)
-                    Circle()
-                        .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
-                        .frame(width: 11.7, height: 11.7)
-                        .offset(x: 0, y: -48)
-                        .opacity(1)
-                    
-                    Circle()
-                        .fill(Color(red: 0.38, green: 0.651, blue: 0.855))
-                        .frame(width: 11.7, height: 11.7)
-                        .offset(x: 0, y: -48)
-                        .opacity(1)
-                        .rotationEffect(.degrees(36))
-                    Circle()
-                        .fill(Color(red: 0.392, green: 0.639, blue: 0.855))
-                        .frame(width: 11.7, height: 11.7)
-                        .offset(x: 0, y: -48)
-                        .opacity(1)
-                        .rotationEffect(.degrees(54))
-                    
-                    
-                    Circle()
-                        .fill(Color(red: 0.518, green: 0.58, blue: 0.851))
-                        .frame(width: 11.7, height: 11.7)
-                        .offset(x: 0, y: -48)
-                        .opacity(1)
-                        .rotationEffect(.degrees(108))
-                    Circle()
-                        .fill(Color(red: 0.494, green: 0.592, blue: 0.851))
-                        .frame(width: 11.7, height: 11.7)
-                        .offset(x: 0, y: -48)
-                        .opacity(1)
-                        .rotationEffect(.degrees(126))
-                    
-                    Circle()
-                        .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
-                        .frame(width: 11.7, height: 11.7)
-                        .opacity(1)
-                        .opacity(1)
-                        .rotationEffect(.degrees(252))
-                    
-                }
-            }
-            ZStack{
-                Group{
-                    Circle()
-                        .fill(Color(red: 0.282, green: 0.694, blue: 0.855))
-                        .frame(width: 11.7, height: 11.7)
-                        .offset(x: 0, y: -48)
-                        .opacity(1)
-                        .rotationEffect(.degrees(162))
-                    Circle()
-                        .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
-                        .frame(width: 11.7, height: 11.7)
-                        .offset(x: 0, y: -48)
-                        .opacity(1)
-                        .rotationEffect(.degrees(180))
-                    Circle()
-                        .fill(Color(red: 0.294, green: 0.855, blue: 0.875))
-                        .frame(width: 11.7, height: 11.7)
-                        .offset(x: 0, y: -48)
-                        .opacity(1)
-                        .rotationEffect(.degrees(198))
-                    Circle()
-                        .fill(Color(red: 0.427, green: 0.898, blue: 0.886))
-                        .frame(width: 11.7, height: 11.7)
-                        .offset(x: 0, y: -48)
-                        .opacity(1)
-                        .rotationEffect(.degrees(216))
-                    Circle()
-                        .fill(Color(red: 0.573, green: 0.949, blue: 0.894))
-                        .frame(width: 11.7, height: 11.7)
-                        .offset(x: 0, y: -48)
-                        .opacity(1)
-                        .rotationEffect(.degrees(234))
-                    
-                    
-                    Circle()
-                        .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
-                        .frame(width: 11.7, height: 11.7)
-                        .offset(x: 0, y: -48)
-                        .opacity(1)
-                        .rotationEffect(.degrees(288))
-                    Circle()
-                        .fill(Color(red: 0.573, green: 0.949, blue: 0.894))
-                        .frame(width: 11.7, height: 11.7)
-                        .offset(x: 0, y: -48)
-                        .opacity(1)
-                        .rotationEffect(.degrees(306))
-                    Circle()
-                        .fill(Color(red: 0.408, green: 0.89, blue: 0.882))
-                        .frame(width: 11.7, height: 11.7)
-                        .offset(x: 0, y: -48)
-                        .opacity(1)
-                        .rotationEffect(.degrees(324))
-                }
-            }
-            ZStack{
-                Group{
-                    //                    III cerchio
-                    Circle()
-                        .fill(Color(red: 0.573, green: 0.949, blue: 0.894))
-                        .frame(width: 10.4, height: 10.4)
-                        .opacity(1)
-                        .opacity(1)
-                        .rotationEffect(.degrees(315))
-                    Circle()
-                        .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
-                        .frame(width: 10.4, height: 10.4)
-                        .opacity(1)
-                        .opacity(1)
-                    Circle()
-                        .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
-                        .frame(width: 10.4, height: 10.4)
-                        .opacity(1)
-                        .opacity(1)
-                        .rotationEffect(.degrees(22.5))
-                    Circle()
-                        .fill(Color(red: 0.38, green: 0.651, blue: 0.855))
-                        .frame(width: 10.4, height: 10.4)
-                        .offset(x: 0, y: -34)
-                        .opacity(1)
-                        .rotationEffect(.degrees(45))
-                    
-                    Circle()
-                        .fill(Color(red: 0.518, green: 0.58, blue: 0.851))
-                        .frame(width: 10.4, height: 10.4)
-                        .offset(x: 0, y: -34)
-                        .opacity(1)
-                        .rotationEffect(.degrees(90))
-                    Circle()
-                        .fill(Color(red: 0.518, green: 0.58, blue: 0.851))
-                        .frame(width: 10.4, height: 10.4)
-                        .offset(x: 0, y: -34)
-                        .opacity(1)
-                        .rotationEffect(.degrees(112.5))
-                    Circle()
-                        .fill(Color(red: 0.494, green: 0.592, blue: 0.851))
-                        .frame(width: 10.4, height: 10.4)
-                        .offset(x: 0, y: -34)
-                        .opacity(1)
-                        .rotationEffect(.degrees(135))
-                    
-                    
-                }
-            }
-            ZStack{
-                Group{
-                    Circle()
-                        .fill(Color(red: 0.294, green: 0.855, blue: 0.875))
-                        .frame(width: 10.4, height: 10.4)
-                        .offset(x: 0, y: -34)
-                        .opacity(1)
-                        .rotationEffect(.degrees(202.5))
-                    Circle()
-                        .fill(Color(red: 0.427, green: 0.898, blue: 0.886))
-                        .frame(width: 10.4, height: 10.4)
-                        .offset(x: 0, y: -34)
-                        .opacity(1)
-                        .rotationEffect(.degrees(225))
-                    
-                    Circle()
-                        .fill(Color(red: 0.651, green: 0.976, blue: 0.902))
-                        .frame(width: 10.4, height: 10.4)
-                        .offset(x: 0, y: -34)
-                        .opacity(1)
-                        .rotationEffect(.degrees(270))
-                    Circle()
-                        .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
-                        .frame(width: 10.4, height: 10.4)
-                        .offset(x: 0, y: -34)
-                        .opacity(1)
-                        .rotationEffect(.degrees(292.5))
-                    
-                    //4 circle
-                    Circle()
-                    .fill(Color(red: 0.475, green: 0.6, blue: 0.851))
-                    .frame(width: 7.5, height: 7.5)
-                    .offset(x: 0, y: -22)
-                    .opacity(1)
-                    .rotationEffect(.degrees(96))
-                    Circle()
-                        .fill(Color(red: 0.518, green: 0.58, blue: 0.851))
-                        .frame(width: 7.5, height: 7.5)
-                        .opacity(1)
-                        .opacity(1)
-                        .rotationEffect(.degrees(120))
-                    Circle()
-                        .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
-                        .frame(width: 7.5, height: 7.5)
-                        .offset(x: 0, y: -22)
-                        .opacity(1)
-                        .rotationEffect(.degrees(24))
-                    
-                    Circle()
-                        .fill(Color(red: 0.392, green: 0.639, blue: 0.855))
-                        .frame(width: 7.5, height: 7.5)
-                        .offset(x: 0, y: -22)
-                        .opacity(1)
-                        .rotationEffect(.degrees(72))
-                }
-            }
-            ZStack{
-                Group{
-                    
-                    
-                    Circle()
-                        .fill(Color(red: 0.502, green: 0.588, blue: 0.851))
-                        .frame(width: 7.5, height: 7.5)
-                        .offset(x: 0, y: -22)
-                        .opacity(1)
-                        .rotationEffect(.degrees(144))
-                    
-                    Circle()
-                        .fill(Color(red: 0.294, green: 0.855, blue: 0.875))
-                        .frame(width: 7.5, height: 7.5)
-                        .offset(x: 0, y: -22)
-                        .opacity(1)
-                        .rotationEffect(.degrees(192))
-                    Circle()
-                        .fill(Color(red: 0.427, green: 0.898, blue: 0.886))
-                        .frame(width: 7.5, height: 7.5)
-                        .offset(x: 0, y: -22)
-                        .opacity(1)
-                        .rotationEffect(.degrees(216))
-                    Circle()
-                        .fill(Color(red: 0.573, green: 0.949, blue: 0.894))
-                        .frame(width: 7.5, height: 7.5)
-                        .offset(x: 0, y: -22)
-                        .opacity(1)
-                        .rotationEffect(.degrees(240))
-                    Circle()
-                        .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
-                        .frame(width: 7.5, height: 7.5)
-                        .offset(x: 0, y: -22)
-                        .opacity(1)
-                        .rotationEffect(.degrees(264))
-                    
-                    Circle()
-                        .fill(Color(red: 0.573, green: 0.949, blue: 0.894))
-                        .frame(width: 7.5, height: 7.5)
-                        .offset(x: 0, y: -22)
-                        .opacity(1)
-                        .rotationEffect(.degrees(312))
-                }
-            }
-            
-                Group{
-                    
-                    //                    V cerchio
-                    Circle()
-                        .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
-                        .frame(width: 5.5, height: 5.5)
-                        .offset(x: 0, y: -13)
-                        .opacity(1)
-                    
-                    
-                    
-                    Circle()
-                        .fill(Color(red: 0.502, green: 0.588, blue: 0.851))
-                        .frame(width: 5.5, height: 5.5)
-                        .offset(x: 0, y: -13)
-                        .opacity(1)
-                        .rotationEffect(.degrees(144))
-                    Circle()
-                        .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
-                        .frame(width: 5.5, height: 5.5)
-                        .offset(x: 0, y: -13)
-                        .opacity(1)
-                        .rotationEffect(.degrees(180))
-                    Circle()
-                        .fill(Color(red: 0.427, green: 0.898, blue: 0.886))
-                        .frame(width: 5.5, height: 5.5)
-                        .offset(x: 0, y: -13)
-                        .opacity(1)
-                        .rotationEffect(.degrees(216))
-                        .rotationEffect(.degrees(216))
-            }
-        
-                
-            }
-            .opacity(dim4 ? 1.0 : 0.2)
-            .animation(.easeIn(duration: 3.0))
-            .onLongPressGesture(minimumDuration: 2.0){
-                self.dim4.toggle()
-            }
              Text(self.nameActivity)
                                .fontWeight(.semibold)
                                .offset(y: +90)
@@ -1065,10 +1089,19 @@ struct angioletto: View{
            
             
              
-        }.navigationBarBackButtonHidden(true)
+        }
+        
+        
+        
         
     }
 }
+
+
+
+
+
+
 
 
 
