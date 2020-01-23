@@ -360,13 +360,13 @@ struct ContentView: View {
                                 withAnimation(){
                                     self.firstMessage = "HOLD"
                                 }
-
+                                
                             }
                             else if self.seconds == 11{
                                 withAnimation(){
-                                    self.firstMessage = "ENHALE"
+                                    self.firstMessage = "EXHALE"
                                 }
-
+                                
                             }
                             else if self.seconds == 20 {
                                 self.timer.connect().cancel()
@@ -398,6 +398,26 @@ struct ContentView: View {
             }.navigationBarBackButtonHidden(true)
             //            Quando show_modal diventa true AlertView si presenta
             AlertView_1_2(show: self.$show_alert)
+        }.contextMenu{
+            NavigationLink(destination: ContentView()){
+                VStack{
+                    Image(systemName: "goforward")
+                    Text("Breathe")
+                }
+            }
+            NavigationLink(destination: angioletto()){
+                VStack{
+                    Image(systemName: "circle.grid.hex.fill")
+                    Text("Focus")
+                }
+            }
+            
+            NavigationLink(destination: angioletto()){
+                VStack{
+                    Image(systemName: "rays")
+                    Text("Blow")
+                }
+            }
         }
     }
     
@@ -1154,6 +1174,26 @@ struct angioletto: View{
                 .fontWeight(.semibold)
                 .offset(y: +90)
                 .foregroundColor(Color(red: 0.69, green: 0.988, blue: 0.922))
+        }.contextMenu{
+            NavigationLink(destination: ContentView()){
+                VStack{
+                    Image(systemName: "goforward")
+                    Text("Breathe")
+                }
+            }
+            NavigationLink(destination: angioletto()){
+                VStack{
+                    Image(systemName: "circle.grid.hex.fill")
+                    Text("Focus")
+                }
+            }
+            
+            NavigationLink(destination: angioletto()){
+                VStack{
+                    Image(systemName: "rays")
+                    Text("Blow")
+                }
+            }
         }
         
     }
