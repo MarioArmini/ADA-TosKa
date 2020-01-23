@@ -13,7 +13,7 @@
     },
     {
       "idiom" : "watch",
-      "filename" : "complication-2.png",
+      "filename" : "complication-1.png",
       "screen-width" : ">145",
       "scale" : "2x"
     },
@@ -26,9 +26,5 @@
   "info" : {
     "version" : 1,
     "author" : "xcode"
-  },
-  "properties" : {
-    "template-rendering-intent" : "original",
-    "preserves-vector-representation" : true
   }
 }

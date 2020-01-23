@@ -352,9 +352,9 @@ struct ContentView: View {
                     VStack{
                         Text("\(self.seconds)").fontWeight(.medium).foregroundColor(Color(red: 0.69, green: 0.988, blue: 0.922)).opacity(0).onReceive(timer){ _ in
                             if self.seconds == 1{
-                                withAnimation(){
+                                
                                     self.firstMessage = "INHALE"
-                                }
+                                
                             }
                             else  if self.seconds == 4{
                                 withAnimation(){
@@ -363,9 +363,9 @@ struct ContentView: View {
                                 
                             }
                             else if self.seconds == 11{
-                                withAnimation(){
+                                
                                     self.firstMessage = "EXHALE"
-                                }
+                                
                                 
                             }
                             else if self.seconds == 20 {
@@ -415,7 +415,7 @@ struct ContentView: View {
             NavigationLink(destination: angioletto()){
                 VStack{
                     Image(systemName: "rays")
-                    Text("Blow")
+                    Text("Fill")
                 }
             }
         }
@@ -430,14 +430,15 @@ struct AlertView_1_2: View {
     var body: some View {
         ZStack{
             VStack{
-                Text("How do you Feel? ")
+                Text("How do you feel?")
+                    .foregroundColor(Color(red: 0.69, green: 0.988, blue: 0.922))
                 Spacer()
                 NavigationLink(destination: angioletto()){
                     Text("Continue")
-                }
+                }.foregroundColor(Color(red: 0.69, green: 0.988, blue: 0.922))
                 NavigationLink(destination: ContentView()){
                     Text("Repeat")
-                }
+                }.foregroundColor(Color(red: 0.69, green: 0.988, blue: 0.922))
                 Spacer()
             }
         }
@@ -453,14 +454,15 @@ struct AlertView_2_3: View {
     var body: some View {
         ZStack{
             VStack{
-                Text("How do you Feel? ")
+                Text("How do you feel?")
+                    .foregroundColor(Color(red: 0.69, green: 0.988, blue: 0.922))
                 Spacer()
                 NavigationLink(destination: angioletto()){
                     Text("Continue")
-                }
+                }.foregroundColor(Color(red: 0.69, green: 0.988, blue: 0.922))
                 NavigationLink(destination: angioletto()){
                     Text("Repeat")
-                }
+                }.foregroundColor(Color(red: 0.69, green: 0.988, blue: 0.922))
                 Spacer()
             }
         }
@@ -1159,12 +1161,16 @@ struct angioletto: View{
                             }
                             .onReceive(timerAlert){_ in
                                 self.secondsAlert += 1
-                                if self.dim == true && self.dim1 == true && self.dim2 == true && self.dim3 == true && self.dim4 == true && self.secondsAlert == 2{
+                                if self.dim == true && self.dim1 == true && self.dim2 == true && self.dim3 == true && self.dim4 == true {if self.secondsAlert == 4{
                                     withAnimation(){
                                         self.show_alert.toggle()
+                                        
+                                    }
+                                    self.nameActivity = ""
                                     }
                                 }
                             }.navigationBarBackButtonHidden(true)
+                           
                             AlertView_2_3(show: self.$show_alert)
                     }
                 }
@@ -1174,6 +1180,8 @@ struct angioletto: View{
                 .fontWeight(.semibold)
                 .offset(y: +90)
                 .foregroundColor(Color(red: 0.69, green: 0.988, blue: 0.922))
+            
+            
         }.contextMenu{
             NavigationLink(destination: ContentView()){
                 VStack{
@@ -1191,7 +1199,7 @@ struct angioletto: View{
             NavigationLink(destination: angioletto()){
                 VStack{
                     Image(systemName: "rays")
-                    Text("Blow")
+                    Text("Fill")
                 }
             }
         }
