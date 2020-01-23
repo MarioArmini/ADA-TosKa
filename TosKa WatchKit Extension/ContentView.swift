@@ -484,7 +484,7 @@ struct angioletto: View{
     let timerAlert = Timer.publish(every: 1, on: .current, in: .common)
     @State var secondsAlert = 0
     
-    @State var nameActivity = "Blow"
+    @State var nameActivity = "Fill"
     var body: some View{
         ZStack{
             Group{
