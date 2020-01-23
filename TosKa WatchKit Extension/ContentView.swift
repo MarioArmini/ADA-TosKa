@@ -70,7 +70,9 @@ struct ContentView: View {
                             .onReceive(timer){ _ in
                                 self.seconds = self.seconds + 1
                                 if self.seconds == 1{
-                                    self.op = 1.0
+                                    withAnimation(){
+                                        self.op = 1.0
+                                    }
                                 }
                         }
                         .opacity(self.op)
@@ -82,7 +84,9 @@ struct ContentView: View {
                             .rotationEffect(.degrees(18))
                             .onReceive(timer){ _ in
                                 if self.seconds == 2{
-                                    self.op2 = 1.0
+                                    withAnimation(){
+                                        self.op2 = 1.0
+                                    }
                                 }
                         }
                         .opacity(self.op2)
@@ -94,7 +98,9 @@ struct ContentView: View {
                             .rotationEffect(.degrees(36))
                             .onReceive(timer){ _ in
                                 if self.seconds == 3{
-                                    self.op3 = 1.0
+                                    withAnimation(){
+                                        self.op3 = 1.0
+                                    }
                                 }
                         }
                         .opacity(self.op3)
@@ -106,7 +112,9 @@ struct ContentView: View {
                             .rotationEffect(.degrees(54))
                             .onReceive(timer){ _ in
                                 if self.seconds == 4{
-                                    self.op4 = 1.0
+                                    withAnimation(){
+                                        self.op4 = 1.0
+                                    }
                                 }
                         }
                         .opacity(self.op4)
@@ -118,7 +126,9 @@ struct ContentView: View {
                             .rotationEffect(.degrees(72))
                             .onReceive(timer){ _ in
                                 if self.seconds == 5{
-                                    self.op5 = 1.0
+                                    withAnimation(){
+                                        self.op5 = 1.0
+                                    }
                                 }
                         }
                         .opacity(self.op5)
@@ -130,7 +140,9 @@ struct ContentView: View {
                             .rotationEffect(.degrees(90))
                             .onReceive(timer){ _ in
                                 if self.seconds == 6{
-                                    self.op6 = 1.0
+                                    withAnimation(){
+                                        self.op6 = 1.0
+                                    }
                                 }
                         }
                         .opacity(self.op6)
@@ -142,7 +154,9 @@ struct ContentView: View {
                             .rotationEffect(.degrees(108))
                             .onReceive(timer){ _ in
                                 if self.seconds == 7{
-                                    self.op7 = 1.0
+                                    withAnimation(){
+                                        self.op7 = 1.0
+                                    }
                                 }
                         }
                         .opacity(self.op7)
@@ -154,7 +168,9 @@ struct ContentView: View {
                             .rotationEffect(.degrees(126))
                             .onReceive(timer){ _ in
                                 if self.seconds == 8{
-                                    self.op8 = 1.0
+                                    withAnimation(){
+                                        self.op8 = 1.0
+                                    }
                                 }
                         }
                         .opacity(self.op8)
@@ -166,7 +182,9 @@ struct ContentView: View {
                             .rotationEffect(.degrees(144))
                             .onReceive(timer){ _ in
                                 if self.seconds == 9{
-                                    self.op9 = 1.0
+                                    withAnimation(){
+                                        self.op9 = 1.0
+                                    }
                                 }
                         }
                         .opacity(self.op9)
@@ -181,7 +199,9 @@ struct ContentView: View {
                             .rotationEffect(.degrees(162))
                             .onReceive(timer){ _ in
                                 if self.seconds == 10{
-                                    self.op10 = 1.0
+                                    withAnimation(){
+                                        self.op10 = 1.0
+                                    }
                                 }
                         }
                         .opacity(self.op10)
@@ -193,7 +213,9 @@ struct ContentView: View {
                             .rotationEffect(.degrees(180))
                             .onReceive(timer){ _ in
                                 if self.seconds == 11{
-                                    self.op11 = 1.0
+                                    withAnimation(){
+                                        self.op11 = 1.0
+                                    }
                                 }
                         }
                         .opacity(self.op11)
@@ -205,7 +227,9 @@ struct ContentView: View {
                             .rotationEffect(.degrees(198))
                             .onReceive(timer){ _ in
                                 if self.seconds == 12{
-                                    self.op12 = 1.0
+                                    withAnimation(){
+                                        self.op12 = 1.0
+                                    }
                                 }
                         }
                         .opacity(self.op12)
@@ -217,7 +241,9 @@ struct ContentView: View {
                             .rotationEffect(.degrees(216))
                             .onReceive(timer){ _ in
                                 if self.seconds == 13{
-                                    self.op13 = 1.0
+                                    withAnimation(){
+                                        self.op13 = 1.0
+                                    }
                                 }
                         }
                         .opacity(self.op13)
@@ -229,7 +255,9 @@ struct ContentView: View {
                             .rotationEffect(.degrees(234))
                             .onReceive(timer){ _ in
                                 if self.seconds == 14{
-                                    self.op14 = 1.0
+                                    withAnimation(){
+                                        self.op14 = 1.0
+                                    }
                                 }
                         }
                         .opacity(self.op14)
@@ -241,7 +269,9 @@ struct ContentView: View {
                             .rotationEffect(.degrees(252))
                             .onReceive(timer){ _ in
                                 if self.seconds == 15{
-                                    self.op15 = 1.0
+                                    withAnimation(){
+                                        self.op15 = 1.0
+                                    }
                                 }
                         }
                         .opacity(self.op15)
@@ -253,7 +283,9 @@ struct ContentView: View {
                             .rotationEffect(.degrees(270))
                             .onReceive(timer){ _ in
                                 if self.seconds == 16{
-                                    self.op16 = 1.0
+                                    withAnimation(){
+                                        self.op16 = 1.0
+                                    }
                                 }
                         }
                         .opacity(self.op16)
@@ -265,7 +297,9 @@ struct ContentView: View {
                             .rotationEffect(.degrees(288))
                             .onReceive(timer){ _ in
                                 if self.seconds == 17{
-                                    self.op17 = 1.0
+                                    withAnimation(){
+                                        self.op17 = 1.0
+                                    }
                                 }
                         }
                         .opacity(self.op17)
@@ -277,7 +311,9 @@ struct ContentView: View {
                             .rotationEffect(.degrees(306))
                             .onReceive(timer){ _ in
                                 if self.seconds == 18{
-                                    self.op18 = 1.0
+                                    withAnimation(){
+                                        self.op18 = 1.0
+                                    }
                                 }
                         }
                         .opacity(self.op18)
@@ -289,7 +325,9 @@ struct ContentView: View {
                             .rotationEffect(.degrees(324))
                             .onReceive(timer){ _ in
                                 if self.seconds == 19{
-                                    self.op19 = 1.0
+                                    withAnimation(){
+                                        self.op19 = 1.0
+                                    }
                                 }
                         }
                         .opacity(self.op19)
@@ -303,31 +341,41 @@ struct ContentView: View {
                         .rotationEffect(.degrees(342))
                         .onReceive(timer){ _ in
                             if self.seconds == 20{
-                                self.op20 = 1.0
+                                withAnimation(){
+                                    self.op20 = 1.0
+                                }
                             }
                     }
                     .opacity(self.op20)
                     
                     // Stack with elements inside the circles
                     VStack{
-                        Text("\(self.seconds)").fontWeight(.medium).foregroundColor(Color(red: 0.69, green: 0.988, blue: 0.922)).onReceive(timer){ _ in
+                        Text("\(self.seconds)").fontWeight(.medium).foregroundColor(Color(red: 0.69, green: 0.988, blue: 0.922)).opacity(0).onReceive(timer){ _ in
                             if self.seconds == 1{
-                                self.firstMessage = "INHALE"
+                                withAnimation(){
+                                    self.firstMessage = "INHALE"
+                                }
                             }
                             else  if self.seconds == 4{
-                                self.firstMessage = "HOLD"
+                                withAnimation(){
+                                    self.firstMessage = "HOLD"
+                                }
+
                             }
                             else if self.seconds == 11{
-                                self.firstMessage = "EXHALE"
+                                withAnimation(){
+                                    self.firstMessage = "ENHALE"
+                                }
+
                             }
                             else if self.seconds == 20 {
                                 self.timer.connect().cancel()
-                                //                                Imposto show_modal come toggle(false and true)
-                                self.show_alert.toggle()
-                                //                                lo setto come true
-                                self.show_alert = true
+                                //self.show_alert.toggle()
                                 
-                                self.nameActivity = ""
+                                withAnimation(){
+                                    self.nameActivity = ""
+                                    self.show_alert.toggle()
+                                }
                                 
                             }
                             
@@ -377,6 +425,30 @@ struct AlertView_1_2: View {
         .offset(x: self.show ? 0 : 500, y: 0)
     }
 }
+
+struct AlertView_2_3: View {
+    //    binding Per mostrare la view
+    @Binding var show: Bool
+    
+    var body: some View {
+        ZStack{
+            VStack{
+                Text("How do you Feel? ")
+                Spacer()
+                NavigationLink(destination: angioletto()){
+                    Text("Continue")
+                }
+                NavigationLink(destination: angioletto()){
+                    Text("Repeat")
+                }
+                Spacer()
+            }
+        }
+        .background(Color.black)
+        .offset(x: self.show ? 0 : 500, y: 0)
+    }
+}
+
 struct angioletto: View{
     
     @State var changed = false
@@ -386,6 +458,11 @@ struct angioletto: View{
     @State private var dim3 = false
     @State private var dim4 = false
     @State private var half = false
+    
+    @State private var show_alert: Bool = false
+    
+    let timerAlert = Timer.publish(every: 1, on: .current, in: .common)
+    @State var secondsAlert = 0
     
     @State var nameActivity = "Blow"
     var body: some View{
@@ -795,6 +872,7 @@ struct angioletto: View{
             .onLongPressGesture(minimumDuration: 2){
                 self.dim4.toggle()
                 self.half.toggle()
+                self.timerAlert.connect()
             }
             
             //            gruppo cerchi del primo settore
@@ -1059,8 +1137,16 @@ struct angioletto: View{
                             .onTapGesture(count: 1){
                                 self.dim3.toggle()
                             }
+                            .onReceive(timerAlert){_ in
+                                self.secondsAlert += 1
+                                if self.dim == true && self.dim1 == true && self.dim2 == true && self.dim3 == true && self.dim4 == true && self.secondsAlert == 2{
+                                    withAnimation(){
+                                        self.show_alert.toggle()
+                                    }
+                                }
+                            }.navigationBarBackButtonHidden(true)
+                            AlertView_2_3(show: self.$show_alert)
                     }
-                    
                 }
             }
             
