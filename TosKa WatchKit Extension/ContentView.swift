@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 
 
@@ -14,6 +15,8 @@ import SwiftUI
 struct ContentView: View {
     //    State per mostrare l'alert
     @State private var show_alert: Bool = false
+    var player: AVPlayer?
+    @State var Player: AVAudioPlayer?
     
     @State var seconds = 0
     @State var changed = false
@@ -50,9 +53,13 @@ struct ContentView: View {
     
     
     var body: some View {
+        
+        
         ZStack{
             ZStack{
                 ZStack{
+                   
+                    
                     Group{
                         
                         // Test Circle (It can be deleted)
@@ -351,30 +358,31 @@ struct ContentView: View {
                     // Stack with elements inside the circles
                     VStack{
                         Text("\(self.seconds)").fontWeight(.medium).foregroundColor(Color(red: 0.69, green: 0.988, blue: 0.922)).opacity(0).onReceive(timer){ _ in
-                            if self.seconds == 1{
+                            if self.seconds == 2{
                                 
                                     self.firstMessage = "INHALE"
                                 
                             }
-                            else  if self.seconds == 4{
+                            else  if self.seconds == 5{
                                 withAnimation(){
                                     self.firstMessage = "HOLD"
                                 }
                                 
                             }
-                            else if self.seconds == 11{
+                            else if self.seconds == 14{
                                 
                                     self.firstMessage = "EXHALE"
                                 
                                 
                             }
-                            else if self.seconds == 20 {
+                            else if self.seconds == 23 {
                                 self.timer.connect().cancel()
                                 //self.show_alert.toggle()
                                 
                                 withAnimation(){
                                     self.nameActivity = ""
                                     self.show_alert.toggle()
+                                    self.playSoundreadyalert()
                                 }
                                 
                             }
@@ -390,7 +398,9 @@ struct ContentView: View {
                     .onTapGesture {
                         self.changed.toggle()
                         self.timer.connect()
+                        self.playSoundready()
                     }
+                
                     
                 }
                 
@@ -405,7 +415,7 @@ struct ContentView: View {
                     Text("Breathe")
                 }
             }
-            NavigationLink(destination: angioletto()){
+            NavigationLink(destination: FocusView()){
                 VStack{
                     Image(systemName: "circle.grid.hex.fill")
                     Text("Focus")
@@ -420,22 +430,51 @@ struct ContentView: View {
             }
         }
     }
+    func playSoundready() {
+    guard let url = Bundle.main.url(forResource: "Breath", withExtension: "m4a") else { return }
+    do {
+        try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+        try AVAudioSession.sharedInstance().setActive(true)
+        Player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+        guard let player = Player else { return }
+        player.setVolume(0.5, fadeDuration: 200.0) //Abbassa il volume
+        player.play()
+    } catch let error {
+        print(error.localizedDescription)
+        }}
+    func playSoundreadyalert() {
+    guard let url = Bundle.main.url(forResource: "alert", withExtension: "m4a") else { return }
+    do {
+        try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+        try AVAudioSession.sharedInstance().setActive(true)
+        Player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+        guard let player = Player else { return }
+        player.setVolume(0.5, fadeDuration: 200.0) //Abbassa il volume
+        player.play()
+    } catch let error {
+        print(error.localizedDescription)
+        }}
     
 }
 
 struct AlertView_1_2: View {
     //    binding Per mostrare la view
     @Binding var show: Bool
+    var player: AVPlayer?
+    @State var Player: AVAudioPlayer?
     
     var body: some View {
         ZStack{
             VStack{
                 Text("How do you feel?")
                     .foregroundColor(Color(red: 0.69, green: 0.988, blue: 0.922))
+                
                 Spacer()
-                NavigationLink(destination: angioletto()){
-                    Text("Continue")
-                }.foregroundColor(Color(red: 0.69, green: 0.988, blue: 0.922))
+                NavigationLink(destination: FocusView()){
+                    Text("Continue")}
+                    .simultaneousGesture(TapGesture().onEnded{
+                        self.playSoundfocus1()
+                    }).foregroundColor(Color(red: 0.69, green: 0.988, blue: 0.922))
                 NavigationLink(destination: ContentView()){
                     Text("Repeat")
                 }.foregroundColor(Color(red: 0.69, green: 0.988, blue: 0.922))
@@ -445,9 +484,61 @@ struct AlertView_1_2: View {
         .background(Color.black)
         .offset(x: self.show ? 0 : 500, y: 0)
     }
+   func playSoundfocus1() {
+       guard let url = Bundle.main.url(forResource: "Prima focus", withExtension: "m4a") else { return }
+       do {
+           try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+           try AVAudioSession.sharedInstance().setActive(true)
+           Player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+           guard let player = Player else { return }
+           player.setVolume(0.5, fadeDuration: 200.0) //Abbassa il volume
+           player.play()
+       } catch let error {
+           print(error.localizedDescription)
+       }
+   }
 }
 
 struct AlertView_2_3: View {
+    //    binding Per mostrare la view
+    @Binding var show: Bool
+    var player: AVPlayer?
+    @State var Player: AVAudioPlayer?
+    
+    var body: some View {
+        ZStack{
+            VStack{
+                Text("How do you feel?")
+                    .foregroundColor(Color(red: 0.69, green: 0.988, blue: 0.922))
+                Spacer()
+                NavigationLink(destination: angioletto()){
+                    Text("Continue")
+                } .simultaneousGesture(TapGesture().onEnded{self.playSoundshine()})
+                .foregroundColor(Color(red: 0.69, green: 0.988, blue: 0.922))
+                NavigationLink(destination: FocusView()){
+                    Text("Repeat")
+                }.foregroundColor(Color(red: 0.69, green: 0.988, blue: 0.922))
+                Spacer()
+            }
+        }
+        .background(Color.black)
+        .offset(x: self.show ? 0 : 500, y: 0)
+    }
+    func playSoundshine() {
+        guard let url = Bundle.main.url(forResource: "Shine", withExtension: "m4a") else { return }
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+            try AVAudioSession.sharedInstance().setActive(true)
+            Player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+            guard let player = Player else { return }
+            player.setVolume(0.5, fadeDuration: 200.0) //Abbassa il volume
+            player.play()
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    }
+}
+struct AlertView_3_3: View {
     //    binding Per mostrare la view
     @Binding var show: Bool
     
@@ -458,10 +549,10 @@ struct AlertView_2_3: View {
                     .foregroundColor(Color(red: 0.69, green: 0.988, blue: 0.922))
                 Spacer()
                 NavigationLink(destination: angioletto()){
-                    Text("Continue")
-                }.foregroundColor(Color(red: 0.69, green: 0.988, blue: 0.922))
-                NavigationLink(destination: angioletto()){
                     Text("Repeat")
+                }.foregroundColor(Color(red: 0.69, green: 0.988, blue: 0.922))
+                NavigationLink(destination: ContentView()){
+                    Text("Restart")
                 }.foregroundColor(Color(red: 0.69, green: 0.988, blue: 0.922))
                 Spacer()
             }
@@ -470,6 +561,8 @@ struct AlertView_2_3: View {
         .offset(x: self.show ? 0 : 500, y: 0)
     }
 }
+
+
 
 struct angioletto: View{
     
@@ -480,6 +573,8 @@ struct angioletto: View{
     @State private var dim3 = false
     @State private var dim4 = false
     @State private var half = false
+    var player: AVPlayer?
+       @State var Player: AVAudioPlayer?
     
     @State private var show_alert: Bool = false
     
@@ -1159,6 +1254,7 @@ struct angioletto: View{
                                 if self.dim == true && self.dim1 == true && self.dim2 == true && self.dim3 == true && self.dim4 == true {if self.secondsAlert == 4{
                                     withAnimation(){
                                         self.show_alert.toggle()
+                                        self.playSoundfine()
                                         
                                     }
                                     self.nameActivity = ""
@@ -1166,7 +1262,7 @@ struct angioletto: View{
                                 }
                             }.navigationBarBackButtonHidden(true)
                            
-                            AlertView_2_3(show: self.$show_alert)
+                            AlertView_3_3(show: self.$show_alert)
                     }
                 }
             }
@@ -1200,7 +1296,911 @@ struct angioletto: View{
         }
         
     }
+    func playSoundfine() {
+              guard let url = Bundle.main.url(forResource: "Fine sessione", withExtension: "m4a") else { return }
+              do {
+                  try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+                  try AVAudioSession.sharedInstance().setActive(true)
+                  Player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+                  guard let player = Player else { return }
+                  player.setVolume(0.5, fadeDuration: 200.0) //Abbassa il volume
+                  player.play()
+              } catch let error {
+                  print(error.localizedDescription)
+              }
+          }
 }
+
+
+
+
+struct FocusView: View {
+     @State private var show_alert: Bool = false
+    // General Variables
+    @State var selected1 = false
+    @State var disableButtons = true
+    @State var selected2 = false
+    @State var selected3 = false
+     @State var selected4 = false
+     @State var selected5 = false
+     @State var selected6 = false
+    @State var opacity1 = 0.5
+    @State var opacity2 = 0.5
+    @State var opacity3 = 0.5
+    @State var RandomArray: [Bool] = []
+    @State var userArray: [Bool] = [false, false, false]
+    @State var disableStart = false
+    var player: AVPlayer?
+    @State var Player: AVAudioPlayer?
+    
+    
+    //  Timer Variables
+    let timer = Timer.publish(every: 1, on: .current, in: .common)
+    @State var seconds = 0
+    
+    // Start Button variables
+    @State var textButton = "Start"
+    
+    var body: some View {
+        ZStack {
+            VStack{
+            Spacer()
+            
+            Button(action: {
+            
+            // Function to detect what appens on pressing button1 or button2
+            func buttonsPressed(){
+                withAnimation{
+                    self.textButton = "Repeat the sequence"
+                    self.playSoundfocus()
+                }
+                
+                if self.selected1 == true {
+                    withAnimation{
+                        self.opacity1 = 0.5
+                    }
+                    
+                }
+                if self.selected2 == true{
+                    withAnimation{
+                        self.opacity2 = 0.5
+                    }
+                }
+                if self.selected3 == true {
+                    withAnimation{
+                        self.opacity3 = 0.5
+                    }
+                }
+            }
+            
+            // Generate random values
+            self.selected1 = Bool.random()
+            self.selected2 = Bool.random()
+            self.selected3 = Bool.random()
+            
+            // Case False - False (NOT Allowed)
+            if self.selected1 == false && self.selected2 == false && self.selected3 == false {
+                print ("\n------false / false------\n")
+                
+                self.selected2 = !self.selected2
+                
+                print("Button 2 is now \(self.selected2)")
+                
+                buttonsPressed()
+            }
+            
+            buttonsPressed()
+            self.RandomArray.append(self.selected1)
+            self.RandomArray.append(self.selected2)
+            self.RandomArray.append(self.selected3)
+            print("ARRAY: \(self.RandomArray)")
+            
+            self.disableStart = true
+            self.timer.connect()
+            
+        }) {
+            Text(textButton)
+        }
+        .disabled(disableStart)
+            .offset( y: 16)
+            .frame(width: 200, height: 7)
+            .accentColor(Color.black)
+            .foregroundColor(Color(red: 0.69, green: 0.988, blue: 0.962))
+            }
+        VStack {
+            
+            
+            
+            
+            //         UI
+            HStack{
+                Button(action: {
+                    print("1")
+                    self.userArray.remove(at: 0)
+                    self.userArray.insert(true, at: 0)
+                    func buttonsPressed(){
+                        
+                        if self.selected1 == true {
+                            withAnimation{
+                                self.opacity1 = 1
+                                 self.show_alert.toggle()
+                            }
+                            self.textButton = ""
+                        }
+                    }
+                    
+                    if self.userArray == self.RandomArray{
+                        print("uguali")
+                    }else{
+                        print("diversi")
+                    }
+
+                            
+                    
+                    buttonsPressed()
+
+                                   self.selected1 = true
+                   
+
+
+                })
+             
+               
+                
+                {
+                    Circle()
+                        .fill(Color.black)
+                        .frame(width: 50, height: 50)
+                        .onReceive(timer){_ in
+                            self.seconds += 1
+                            if self.seconds == 6{
+                                withAnimation{
+                                    self.opacity1 = 1
+                                }
+                            } else if self.seconds == 7{
+                                withAnimation{
+                                    self.opacity1 = 0.5
+                                   
+                                }
+                                self.timer.connect().cancel()
+                                self.disableButtons = false
+                            }
+                    }
+                }
+                .frame(width: 50, height: 50)
+                .opacity(self.opacity1)
+                .disabled(disableButtons)
+                Spacer().frame(width: 30)
+           
+                
+                
+                
+                
+                
+                Button(action: {
+                    print("2")
+                    self.userArray.remove(at: 1)
+                    self.userArray.insert(true, at: 1)
+                    func buttonsPressed(){
+
+                        if self.selected1 == true {
+                            withAnimation{
+                                self.opacity2 = 1
+                            }
+
+                        }
+                    }
+                    print("User Arrray: \(self.userArray)")
+                    
+                    if self.userArray == self.RandomArray{
+                        print("uguali")
+                    }else{
+                        print("diversi")
+                    }
+                    buttonsPressed()
+                    
+                                                       self.selected1 = true
+                }) {
+                    Circle()
+                        .fill(Color.black)
+                        .frame(width: 50, height: 50)
+                        .onReceive(timer){_ in
+                            if self.seconds == 4{
+                                withAnimation{
+                                    self.opacity2 = 1
+                                }
+                            } else if self.seconds == 5{
+                                withAnimation(){
+                                    self.opacity2 = 0.5
+                                }
+                            }
+                    }
+                }
+                .frame(width: 50, height: 50)
+                .opacity(self.opacity2)
+                .disabled(disableButtons)
+            }
+            
+            Button(action: {
+                print("3")
+                self.userArray.remove(at: 2)
+                self.userArray.insert(true, at: 2)
+                
+                func buttonsPressed(){
+                    
+                    if self.selected1 == true {
+                        
+                            self.opacity3 = 1
+                        
+
+                    }
+                }
+                print("User Arrray: \(self.userArray)")
+                
+                if self.userArray == self.RandomArray{
+                    print("uguali")
+                }else{
+                    print("diversi")
+                }
+             buttonsPressed()
+                self.selected1 = true
+            })
+           
+            {
+                Circle()
+                    .fill(Color.black)
+                    .frame(width: 50, height: 50)
+                    .onReceive(timer){_ in
+                        if self.seconds == 2{
+                            withAnimation{
+                                self.opacity3 = 1
+                            }
+                        } else if self.seconds == 3{
+                            withAnimation(){
+                                self.opacity3 = 0.5
+                            }
+                        }
+                }
+            }
+            .frame(width: 50, height: 50)
+            .opacity(self.opacity3)
+            .disabled(disableButtons)
+        }
+        
+        
+        ZStack{
+                    Group {
+                        
+                        ZStack{
+                            Capsule()
+                                .frame(width: 50 , height: 90)
+                                .foregroundColor(Color.white)
+                                .offset(x: 40, y: 0)
+                                .opacity(0)
+                                .rotationEffect(.degrees(90))
+                            
+                            
+                            Capsule()
+                                .frame(width: 50 , height: 83)
+                                .foregroundColor(Color.white)
+                                .offset(x: 40, y: 0)
+                                .opacity(0)
+                                .rotationEffect(.degrees(210))
+                            Capsule()
+                                .frame(width: 50 , height: 100)
+                                .foregroundColor(Color.white)
+                                .offset(x: 40, y: 0)
+                                .opacity(0)
+                                .rotationEffect(.degrees(-30))
+                            
+                            
+                        }
+                    }
+                    
+                    ZStack{
+                        
+                        
+                        Group{
+                            Circle()
+                                .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
+                                .frame(width: 5.5, height: 5.5)
+                                .offset(x: 0, y: -13)
+                                .opacity(self.opacity1)
+                                .rotationEffect(.degrees(324))
+                    
+                            //                    I cerchio
+                            Circle()
+                                .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
+                                .frame(width: 13, height: 13)
+                                .offset(y: -64)
+                                .opacity(opacity2)
+                            
+                            
+                            Circle()
+                                .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
+                                .frame(width: 13, height: 13)
+                                .offset(y: -64)
+                                .rotationEffect(.degrees(18))
+                                .opacity(opacity2)
+                            
+                            
+                            
+                            
+                            Circle()
+                                .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
+                                .frame(width: 13, height: 13)
+                                .offset(y: -64)
+                                .rotationEffect(.degrees(36))
+                                .opacity(opacity2)
+                            
+                            Circle()
+                                .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
+                                .frame(width: 13, height: 13)
+                                .offset(y: -64)
+                                .rotationEffect(.degrees(54))
+                                .opacity(opacity2)
+                            
+                            Circle()
+                                .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
+                                .frame(width: 13, height: 13)
+                                .offset(y: -64)
+                                .rotationEffect(.degrees(72))
+                                .opacity(opacity2)
+                            
+                            Circle()
+                                .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
+                                .frame(width: 13, height: 13)
+                                .offset(y: -64)
+                                .rotationEffect(.degrees(90))
+                                .opacity(opacity2)
+                            
+                            Circle()
+                                .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
+                                .frame(width: 13, height: 13)
+                                .offset(y: -64)
+                                .rotationEffect(.degrees(108))
+                                .opacity(opacity2)
+                            
+                            Circle()
+                                .fill(Color(red: 0.502, green: 0.588, blue: 0.851))                        .frame(width: 13, height: 13)
+        .offset(y: -64)
+                                .rotationEffect(.degrees(126))
+                                .opacity(opacity3)
+                            
+                            Circle()
+                                .fill(Color(red: 0.502, green: 0.588, blue: 0.851))
+                                .frame(width: 13, height: 13)
+                                .offset(y: -64)
+                                .rotationEffect(.degrees(144))
+                                .opacity(opacity3)
+                        }
+                    }
+                    
+                    
+                    
+                    
+                    ZStack{
+                        Group{
+                            Circle()
+                                .fill(Color(red: 0.502, green: 0.588, blue: 0.851))
+                                .frame(width: 13, height: 13)
+                                .offset(y: -64)
+                                .rotationEffect(.degrees(162))
+                                .opacity(opacity3)
+                            Circle()
+                                .fill(Color(red: 0.502, green: 0.588, blue: 0.851))
+                                .frame(width: 13, height: 13)
+                                .offset(y: -64)
+                                .rotationEffect(.degrees(180))
+                                .opacity(opacity3)
+                            Circle()
+                                .fill(Color(red: 0.502, green: 0.588, blue: 0.851))
+                                .frame(width: 13, height: 13)
+                                .offset(y: -64)
+                                .rotationEffect(.degrees(198))
+                                .opacity(opacity3)
+                            Circle()
+                                .fill(Color(red: 0.502, green: 0.588, blue: 0.851))
+                                .frame(width: 13, height: 13)
+                                .offset(y: -64)
+                                .rotationEffect(.degrees(216))
+                                .opacity(opacity3)
+                            Circle()
+                                .fill(Color(red: 0.502, green: 0.588, blue: 0.851))
+                                .frame(width: 13, height: 13)
+                                .offset(y: -64)
+                                .rotationEffect(.degrees(234))
+                                .opacity(opacity3)
+                            Circle()
+                                .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
+                                .frame(width: 13, height: 13)
+                                .offset(y: -64)
+                                .rotationEffect(.degrees(252))
+                                .opacity(opacity1)
+                            Circle()
+                                .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
+                                .frame(width: 13, height: 13)
+                                .offset(y: -64)
+                                .rotationEffect(.degrees(270))
+                                .opacity(opacity1)
+                            Circle()
+                                .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
+                                .frame(width: 13, height: 13)
+                                .offset(y: -64)
+                                .rotationEffect(.degrees(288))
+                                .opacity(opacity1)
+                            Circle()
+                                .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
+                                .frame(width: 13, height: 13)
+                                .offset(y: -64)
+                                .rotationEffect(.degrees(306))
+                                .opacity(opacity1)
+                            Circle()
+                                .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
+                                .frame(width: 13, height: 13)
+                                .offset(y: -64)
+                                .rotationEffect(.degrees(324))
+                                .opacity(opacity1)
+                        }
+                        
+                    }
+                    
+                    ZStack{
+                        Circle()
+                            .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
+                            .frame(width: 13, height: 13)
+                            .offset(y: -64)
+                            .rotationEffect(.degrees(342))
+                            .opacity(opacity1)
+                        
+                    }
+                    
+                    ZStack{
+                        Group{
+                            //                    II cerchio
+                            Circle()
+                                .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
+                                .frame(width: 11.7, height: 11.7)
+                                .offset(x: 0, y: -48)
+                                .rotationEffect(.degrees(342))
+                                .opacity(opacity1)
+                            Circle()
+                                .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
+                                .frame(width: 11.7, height: 11.7)
+                                .offset(x: 0, y: -48)
+                                .opacity(opacity2)
+                            Circle()
+                                .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
+                                .frame(width: 11.7, height: 11.7)
+                                .offset(x: 0, y: -48)
+                                .opacity(opacity2)
+                                .rotationEffect(.degrees(18))
+                            Circle()
+                                .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
+                                .frame(width: 11.7, height: 11.7)
+                                .offset(x: 0, y: -48)
+                                .opacity(opacity2)
+                                .rotationEffect(.degrees(36))
+                            Circle()
+                                .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
+                                .frame(width: 11.7, height: 11.7)
+                                .offset(x: 0, y: -48)
+                                .opacity(opacity2)
+                                .rotationEffect(.degrees(54))
+                            Circle()
+                                .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
+                                .frame(width: 11.7, height: 11.7)
+                                .offset(x: 0, y: -48)
+                                .opacity(opacity2)
+                                .rotationEffect(.degrees(72))
+                            Circle()
+                                .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
+                                .frame(width: 11.7, height: 11.7)
+                                .offset(x: 0, y: -48)
+                                .opacity(opacity2)
+                                .rotationEffect(.degrees(90))
+                            Circle()
+                                .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
+                                .frame(width: 11.7, height: 11.7)
+                                .offset(x: 0, y: -48)
+                                .opacity(opacity2)
+                                .rotationEffect(.degrees(108))
+                            Circle()
+                                .fill(Color(red: 0.502, green: 0.588, blue: 0.851))
+                                .frame(width: 11.7, height: 11.7)
+                                .offset(x: 0, y: -48)
+                                .opacity(opacity3)
+                                .rotationEffect(.degrees(126))
+                            Circle()
+                                .fill(Color(red: 0.502, green: 0.588, blue: 0.851))
+                                .frame(width: 11.7, height: 11.7)
+                                .offset(x: 0, y: -48)
+                                .opacity(opacity3)
+                                .rotationEffect(.degrees(144))
+                            
+                            
+                        }
+                    }
+                    ZStack{
+                        Group{
+                            Circle()
+                                .fill(Color(red: 0.502, green: 0.588, blue: 0.851))
+                                .frame(width: 11.7, height: 11.7)
+                                .offset(x: 0, y: -48)
+                                .opacity(opacity3)
+                                .rotationEffect(.degrees(162))
+                            Circle()
+                                .fill(Color(red: 0.502, green: 0.588, blue: 0.851))
+                                .frame(width: 11.7, height: 11.7)
+                                .offset(x: 0, y: -48)
+                                .opacity(opacity3)
+                                .rotationEffect(.degrees(180))
+                            Circle()
+                                .fill(Color(red: 0.502, green: 0.588, blue: 0.851))
+                                .frame(width: 11.7, height: 11.7)
+                                .offset(x: 0, y: -48)
+                                .opacity(opacity3)
+                                .rotationEffect(.degrees(198))
+                            Circle()
+                                .fill(Color(red: 0.502, green: 0.588, blue: 0.851))
+                                .frame(width: 11.7, height: 11.7)
+                                .offset(x: 0, y: -48)
+                                .opacity(opacity3)
+                                .rotationEffect(.degrees(216))
+                            Circle()
+                                .fill(Color(red: 0.502, green: 0.588, blue: 0.851))
+                                .frame(width: 11.7, height: 11.7)
+                                .offset(x: 0, y: -48)
+                                .opacity(opacity3)
+                                .rotationEffect(.degrees(234))
+                            Circle()
+                                .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
+                                .frame(width: 11.7, height: 11.7)
+                                .offset(x: 0, y: -48)
+                                .opacity(opacity1)
+                                .rotationEffect(.degrees(252))
+                            Circle()
+                                .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
+                                .frame(width: 11.7, height: 11.7)
+                                .offset(x: 0, y: -48)
+                                .opacity(opacity1)
+                                .rotationEffect(.degrees(270))
+                            Circle()
+                                .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
+                                .frame(width: 11.7, height: 11.7)
+                                .offset(x: 0, y: -48)
+                                .opacity(opacity1)
+                                .rotationEffect(.degrees(288))
+                            Circle()
+                                .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
+                                .frame(width: 11.7, height: 11.7)
+                                .offset(x: 0, y: -48)
+                                .opacity(opacity1)
+                                .rotationEffect(.degrees(306))
+                            Circle()
+                                .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
+                                .frame(width: 11.7, height: 11.7)
+                                .offset(x: 0, y: -48)
+                                .opacity(opacity1)
+                                .rotationEffect(.degrees(324))
+                        }
+                    }
+                    ZStack{
+                        Group{
+                            //                    III cerchio
+                            Circle()
+                                .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
+                                .frame(width: 10.4, height: 10.4)
+                                .offset(x: 0, y: -34)
+                                .opacity(opacity1)
+                                .rotationEffect(.degrees(337.5))
+                            Circle()
+                                .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
+                                .frame(width: 10.4, height: 10.4)
+                                .offset(x: 0, y: -34)
+                                .opacity(opacity2)
+                            Circle()
+                                .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
+                                .frame(width: 10.4, height: 10.4)
+                                .offset(x: 0, y: -34)
+                                .opacity(opacity2)
+                                .rotationEffect(.degrees(22.5))
+                            Circle()
+                                .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
+                                .frame(width: 10.4, height: 10.4)
+                                .offset(x: 0, y: -34)
+                                .opacity(opacity2)
+                                .rotationEffect(.degrees(45))
+                            Circle()
+                                .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
+                                .frame(width: 10.4, height: 10.4)
+                                .offset(x: 0, y: -34)
+                                .opacity(opacity2)
+                                .rotationEffect(.degrees(67.5))
+                            Circle()
+                                .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
+                                .frame(width: 10.4, height: 10.4)
+                                .offset(x: 0, y: -34)
+                                .opacity(opacity2)
+                                .rotationEffect(.degrees(90))
+                            Circle()
+                                .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
+                                .frame(width: 10.4, height: 10.4)
+                                .offset(x: 0, y: -34)
+                                .opacity(opacity2)
+                                .rotationEffect(.degrees(112.5))
+                            Circle()
+                                .fill(Color(red: 0.502, green: 0.588, blue: 0.851))
+                                .frame(width: 10.4, height: 10.4)
+                                .offset(x: 0, y: -34)
+                                .opacity(opacity3)
+                                .rotationEffect(.degrees(135))
+                            Circle()
+                                .fill(Color(red: 0.502, green: 0.588, blue: 0.851))
+                                .frame(width: 10.4, height: 10.4)
+                                .offset(x: 0, y: -34)
+                                .opacity(opacity3)
+                                .rotationEffect(.degrees(157.5))
+                            Circle()
+                                .fill(Color(red: 0.502, green: 0.588, blue: 0.851))
+                                .frame(width: 10.4, height: 10.4)
+                                .offset(x: 0, y: -34)
+                                .opacity(opacity3)
+                                .rotationEffect(.degrees(180))
+                        }
+                    }
+                    ZStack{
+                        Group{
+                            Circle()
+                                .fill(Color(red: 0.502, green: 0.588, blue: 0.851))
+                                .frame(width: 10.4, height: 10.4)
+                                .offset(x: 0, y: -34)
+                                .opacity(opacity3)
+                                .rotationEffect(.degrees(202.5))
+                            Circle()
+                                .fill(Color(red: 0.502, green: 0.588, blue: 0.851))
+                                .frame(width: 10.4, height: 10.4)
+                                .offset(x: 0, y: -34)
+                                .opacity(opacity3)
+                                .rotationEffect(.degrees(225))
+                            Circle()
+                                .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
+                                .frame(width: 10.4, height: 10.4)
+                                .offset(x: 0, y: -34)
+                                .opacity(opacity1)
+                                .rotationEffect(.degrees(247.5))
+                            Circle()
+                                .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
+                                .frame(width: 10.4, height: 10.4)
+                                .offset(x: 0, y: -34)
+                                .opacity(opacity1)
+                                .rotationEffect(.degrees(270))
+                            Circle()
+                                .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
+                                .frame(width: 10.4, height: 10.4)
+                                .offset(x: 0, y: -34)
+                                .opacity(opacity1)
+                                .rotationEffect(.degrees(292.5))
+                            Circle()
+                                .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
+                                .frame(width: 10.4, height: 10.4)
+                                .offset(x: 0, y: -34)
+                                .opacity(opacity1)
+                                .rotationEffect(.degrees(315))
+                            //4 circle
+                            Circle()
+                                .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
+                                .frame(width: 7.5, height: 7.5)
+                                .offset(x: 0, y: -22)
+                                .opacity(opacity2)
+                            Circle()
+                                .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
+                                .frame(width: 7.5, height: 7.5)
+                                .offset(x: 0, y: -22)
+                                .opacity(opacity2)
+                                .rotationEffect(.degrees(24))
+                            Circle()
+                                .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
+                                .frame(width: 7.5, height: 7.5)
+                                .offset(x: 0, y: -22)
+                                .opacity(opacity2)
+                                .rotationEffect(.degrees(48))
+                            Circle()
+                                .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
+                                .frame(width: 7.5, height: 7.5)
+                                .offset(x: 0, y: -22)
+                                .opacity(opacity2)
+                                .rotationEffect(.degrees(72))
+                        }
+                    }
+                    ZStack{
+                        Group{
+                            Circle()
+                                .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
+                                .frame(width: 7.5, height: 7.5)
+        .offset(x: 0, y: -22)
+                                .opacity(opacity2)
+                                .rotationEffect(.degrees(96))
+                            Circle()
+                                .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
+                                .frame(width: 7.5, height: 7.5)
+                                .offset(x: 0, y: -22)
+                                .opacity(opacity2)
+                                .rotationEffect(.degrees(120))
+                            Circle()
+                                .fill(Color(red: 0.502, green: 0.588, blue: 0.851))
+                                .frame(width: 7.5, height: 7.5)
+                                .offset(x: 0, y: -22)
+                                .opacity(opacity3)
+                                .rotationEffect(.degrees(144))
+                            Circle()
+                                .fill(Color(red: 0.502, green: 0.588, blue: 0.851))
+                                .frame(width: 7.5, height: 7.5)
+                                .offset(x: 0, y: -22)
+                                .opacity(opacity3)
+                                .rotationEffect(.degrees(168))
+                            Circle()
+                                .fill(Color(red: 0.502, green: 0.588, blue: 0.851))
+                                .frame(width: 7.5, height: 7.5)
+                                .offset(x: 0, y: -22)
+                                .opacity(opacity3)
+                                .rotationEffect(.degrees(192))
+                            Circle()
+                                .fill(Color(red: 0.502, green: 0.588, blue: 0.851))
+                                .frame(width: 7.5, height: 7.5)
+                                .offset(x: 0, y: -22)
+                                .opacity(opacity3)
+                                .rotationEffect(.degrees(216))
+                            Circle()
+                                .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
+                                .frame(width: 7.5, height: 7.5)
+                                .offset(x: 0, y: -22)
+                                .opacity(opacity1)
+                                .rotationEffect(.degrees(240))
+                            Circle()
+                                .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
+                            .frame(width: 7.5, height: 7.5)
+                            .offset(x: 0, y: -22)
+                            .opacity(opacity1)
+                            .rotationEffect(.degrees(264))
+                        Circle()
+                           .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
+                            .frame(width: 7.5, height: 7.5)
+                            .offset(x: 0, y: -22)
+                            .opacity(opacity1)
+                            .rotationEffect(.degrees(288))
+                        Circle()
+                            .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
+                            .frame(width: 7.5, height: 7.5)
+                            .offset(x: 0, y: -22)
+                            .opacity(opacity1)
+                            .rotationEffect(.degrees(312))
+                    }
+                }
+                
+                ZStack{
+                    Group{
+                        Circle()
+                           .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
+                            .frame(width: 7.5, height: 7.5)
+                            .offset(x: 0, y: -22)
+                            .opacity(opacity1)
+                            .rotationEffect(.degrees(336))
+                        //                    V cerchio
+                        Circle()
+                            .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
+                            .frame(width: 5.5, height: 5.5)
+                            .offset(x: 0, y: -13)
+                            .opacity(opacity2)
+                        Circle()
+                             .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
+                            .frame(width: 5.5, height: 5.5)
+                            .offset(x: 0, y: -13)
+                            .opacity(opacity2)
+                            .rotationEffect(.degrees(36))
+                        Circle()
+                             .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
+                            .frame(width: 5.5, height: 5.5)
+                            .offset(x: 0, y: -13)
+                            .opacity(opacity2)
+                            .rotationEffect(.degrees(72))
+                        Circle()
+                             .fill(Color(red: 0.184, green: 0.741, blue: 0.859))
+                            .frame(width: 5.5, height: 5.5)
+                            .offset(x: 0, y: -13)
+                            .opacity(opacity2)
+                            .rotationEffect(.degrees(108))
+                        Circle()
+                             .fill(Color(red: 0.502, green: 0.588, blue: 0.851))
+                            .frame(width: 5.5, height: 5.5)
+                            .offset(x: 0, y: -13)
+                            .opacity(opacity3)
+                            .rotationEffect(.degrees(144))
+                        Circle()
+                            .fill(Color(red: 0.502, green: 0.588, blue: 0.851))
+                            .frame(width: 5.5, height: 5.5)
+                            .offset(x: 0, y: -13)
+                            .opacity(opacity3)
+                            .rotationEffect(.degrees(180))
+                        Circle()
+                             .fill(Color(red: 0.502, green: 0.588, blue: 0.851))
+                            .frame(width: 5.5, height: 5.5)
+                            .offset(x: 0, y: -13)
+                            .opacity(opacity3)
+                            .rotationEffect(.degrees(216))
+                        Circle()
+                            .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
+                            .frame(width: 5.5, height: 5.5)
+                            .offset(x: 0, y: -13)
+                            .opacity(opacity1)
+                            .rotationEffect(.degrees(252))
+                        Circle()
+                           .fill(Color(red: 0.612, green: 0.965, blue: 0.898))
+                            .frame(width: 5.5, height: 5.5)
+                            .offset(x: 0, y: -13)
+                            .opacity(opacity1)
+                            .rotationEffect(.degrees(288))
+                        
+                        
+                    }
+                }
+                
+        }.contextMenu{
+            NavigationLink(destination: ContentView()){
+                VStack{
+                    Image(systemName: "goforward")
+                    Text("Breathe")
+                }
+            }
+            NavigationLink(destination: angioletto()){
+                VStack{
+                    Image(systemName: "circle.grid.hex.fill")
+                    Text("Focus")
+                }
+            }
+            
+            NavigationLink(destination: angioletto()){
+                VStack{
+                    Image(systemName: "rays")
+                    Text("Fill")
+                }
+            }
+        }
+           .navigationBarBackButtonHidden(true)
+        AlertView_2_3(show: self.$show_alert)
+        }
+        
+    }
+    func playSoundfocus() {
+            guard let url = Bundle.main.url(forResource: "Focus", withExtension: "m4a") else { return }
+            do {
+                try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+                try AVAudioSession.sharedInstance().setActive(true)
+                Player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+                guard let player = Player else { return }
+                player.setVolume(0.5, fadeDuration: 200.0) //Abbassa il volume
+                player.play()
+            } catch let error {
+                print(error.localizedDescription)
+            }
+        }
+    func playSoundfine() {
+            guard let url = Bundle.main.url(forResource: "Fine sessione", withExtension: "m4a") else { return }
+            do {
+                try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+                try AVAudioSession.sharedInstance().setActive(true)
+                Player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+                guard let player = Player else { return }
+                player.setVolume(0.5, fadeDuration: 200.0) //Abbassa il volume
+                player.play()
+            } catch let error {
+                print(error.localizedDescription)
+            }
+        }
+    
+    }
+
+   
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
