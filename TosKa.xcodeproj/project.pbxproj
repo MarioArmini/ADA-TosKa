@@ -7,6 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		013D76BD23DAE0C400E6B4E9 /* Prima di breath.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 013D76BC23DAE0C400E6B4E9 /* Prima di breath.m4a */; };
+		013D76BE23DAE0C400E6B4E9 /* Prima di breath.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 013D76BC23DAE0C400E6B4E9 /* Prima di breath.m4a */; };
+		013D76BF23DAE0C400E6B4E9 /* Prima di breath.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 013D76BC23DAE0C400E6B4E9 /* Prima di breath.m4a */; };
+		013D76C723DAE13200E6B4E9 /* Fine sessione.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 013D76C023DAE13200E6B4E9 /* Fine sessione.m4a */; };
+		013D76C823DAE13200E6B4E9 /* Fine sessione.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 013D76C023DAE13200E6B4E9 /* Fine sessione.m4a */; };
+		013D76C923DAE13200E6B4E9 /* Fine sessione.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 013D76C023DAE13200E6B4E9 /* Fine sessione.m4a */; };
+		013D76CD23DAE13200E6B4E9 /* Breath.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 013D76C223DAE13200E6B4E9 /* Breath.m4a */; };
+		013D76CE23DAE13200E6B4E9 /* Breath.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 013D76C223DAE13200E6B4E9 /* Breath.m4a */; };
+		013D76CF23DAE13200E6B4E9 /* Breath.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 013D76C223DAE13200E6B4E9 /* Breath.m4a */; };
+		013D76D023DAE13200E6B4E9 /* Prima focus.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 013D76C323DAE13200E6B4E9 /* Prima focus.m4a */; };
+		013D76D123DAE13200E6B4E9 /* Prima focus.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 013D76C323DAE13200E6B4E9 /* Prima focus.m4a */; };
+		013D76D223DAE13200E6B4E9 /* Prima focus.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 013D76C323DAE13200E6B4E9 /* Prima focus.m4a */; };
+		013D76D323DAE13200E6B4E9 /* Focus.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 013D76C423DAE13200E6B4E9 /* Focus.m4a */; };
+		013D76D423DAE13200E6B4E9 /* Focus.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 013D76C423DAE13200E6B4E9 /* Focus.m4a */; };
+		013D76D523DAE13200E6B4E9 /* Focus.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 013D76C423DAE13200E6B4E9 /* Focus.m4a */; };
+		013D76D623DAE13200E6B4E9 /* Shine.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 013D76C523DAE13200E6B4E9 /* Shine.m4a */; };
+		013D76D723DAE13200E6B4E9 /* Shine.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 013D76C523DAE13200E6B4E9 /* Shine.m4a */; };
+		013D76D823DAE13200E6B4E9 /* Shine.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 013D76C523DAE13200E6B4E9 /* Shine.m4a */; };
+		013D76D923DAE13200E6B4E9 /* alert.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 013D76C623DAE13200E6B4E9 /* alert.m4a */; };
+		013D76DA23DAE13200E6B4E9 /* alert.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 013D76C623DAE13200E6B4E9 /* alert.m4a */; };
+		013D76DB23DAE13200E6B4E9 /* alert.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 013D76C623DAE13200E6B4E9 /* alert.m4a */; };
+		013D76DD23DAE23400E6B4E9 /* Apertura TosKa.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 013D76DC23DAE23400E6B4E9 /* Apertura TosKa.m4a */; };
+		013D76DE23DAE23400E6B4E9 /* Apertura TosKa.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 013D76DC23DAE23400E6B4E9 /* Apertura TosKa.m4a */; };
+		013D76DF23DAE23400E6B4E9 /* Apertura TosKa.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 013D76DC23DAE23400E6B4E9 /* Apertura TosKa.m4a */; };
 		0146F09323D6E1680010AD8E /* TosKa WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 0146F09223D6E1680010AD8E /* TosKa WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0146F09923D6E1680010AD8E /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0146F09723D6E1680010AD8E /* Interface.storyboard */; };
 		0146F09B23D6E16A0010AD8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0146F09A23D6E16A0010AD8E /* Assets.xcassets */; };
@@ -64,6 +88,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		013D76BC23DAE0C400E6B4E9 /* Prima di breath.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Prima di breath.m4a"; sourceTree = "<group>"; };
+		013D76C023DAE13200E6B4E9 /* Fine sessione.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fine sessione.m4a"; sourceTree = SOURCE_ROOT; };
+		013D76C223DAE13200E6B4E9 /* Breath.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Breath.m4a; sourceTree = SOURCE_ROOT; };
+		013D76C323DAE13200E6B4E9 /* Prima focus.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Prima focus.m4a"; sourceTree = SOURCE_ROOT; };
+		013D76C423DAE13200E6B4E9 /* Focus.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Focus.m4a; sourceTree = SOURCE_ROOT; };
+		013D76C523DAE13200E6B4E9 /* Shine.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Shine.m4a; sourceTree = SOURCE_ROOT; };
+		013D76C623DAE13200E6B4E9 /* alert.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = alert.m4a; sourceTree = SOURCE_ROOT; };
+		013D76DC23DAE23400E6B4E9 /* Apertura TosKa.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Apertura TosKa.m4a"; sourceTree = "<group>"; };
 		0146F08E23D6E1680010AD8E /* TosKa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TosKa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0146F09223D6E1680010AD8E /* TosKa WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TosKa WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0146F09823D6E1680010AD8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
@@ -133,6 +165,14 @@
 				0146F0B023D6E16A0010AD8E /* ComplicationController.swift */,
 				0146F0B223D6E16A0010AD8E /* Assets.xcassets */,
 				0146F0B723D6E16A0010AD8E /* Info.plist */,
+				013D76C423DAE13200E6B4E9 /* Focus.m4a */,
+				013D76BC23DAE0C400E6B4E9 /* Prima di breath.m4a */,
+				013D76C623DAE13200E6B4E9 /* alert.m4a */,
+				013D76DC23DAE23400E6B4E9 /* Apertura TosKa.m4a */,
+				013D76C223DAE13200E6B4E9 /* Breath.m4a */,
+				013D76C023DAE13200E6B4E9 /* Fine sessione.m4a */,
+				013D76C323DAE13200E6B4E9 /* Prima focus.m4a */,
+				013D76C523DAE13200E6B4E9 /* Shine.m4a */,
 				0146F0B823D6E16A0010AD8E /* PushNotificationPayload.apns */,
 				0146F0B423D6E16A0010AD8E /* Preview Content */,
 			);
@@ -247,6 +287,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				013D76DD23DAE23400E6B4E9 /* Apertura TosKa.m4a in Resources */,
+				013D76D623DAE13200E6B4E9 /* Shine.m4a in Resources */,
+				013D76D923DAE13200E6B4E9 /* alert.m4a in Resources */,
+				013D76CD23DAE13200E6B4E9 /* Breath.m4a in Resources */,
+				013D76D323DAE13200E6B4E9 /* Focus.m4a in Resources */,
+				013D76C723DAE13200E6B4E9 /* Fine sessione.m4a in Resources */,
+				013D76BD23DAE0C400E6B4E9 /* Prima di breath.m4a in Resources */,
+				013D76D023DAE13200E6B4E9 /* Prima focus.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,8 +302,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				013D76C823DAE13200E6B4E9 /* Fine sessione.m4a in Resources */,
+				013D76D423DAE13200E6B4E9 /* Focus.m4a in Resources */,
+				013D76BE23DAE0C400E6B4E9 /* Prima di breath.m4a in Resources */,
+				013D76DA23DAE13200E6B4E9 /* alert.m4a in Resources */,
+				013D76DE23DAE23400E6B4E9 /* Apertura TosKa.m4a in Resources */,
+				013D76CE23DAE13200E6B4E9 /* Breath.m4a in Resources */,
+				013D76D123DAE13200E6B4E9 /* Prima focus.m4a in Resources */,
 				0146F09B23D6E16A0010AD8E /* Assets.xcassets in Resources */,
 				0146F09923D6E1680010AD8E /* Interface.storyboard in Resources */,
+				013D76D723DAE13200E6B4E9 /* Shine.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,8 +319,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				013D76C923DAE13200E6B4E9 /* Fine sessione.m4a in Resources */,
+				013D76D523DAE13200E6B4E9 /* Focus.m4a in Resources */,
+				013D76BF23DAE0C400E6B4E9 /* Prima di breath.m4a in Resources */,
+				013D76DB23DAE13200E6B4E9 /* alert.m4a in Resources */,
+				013D76DF23DAE23400E6B4E9 /* Apertura TosKa.m4a in Resources */,
+				013D76CF23DAE13200E6B4E9 /* Breath.m4a in Resources */,
+				013D76D223DAE13200E6B4E9 /* Prima focus.m4a in Resources */,
 				0146F0B623D6E16A0010AD8E /* Preview Assets.xcassets in Resources */,
 				0146F0B323D6E16A0010AD8E /* Assets.xcassets in Resources */,
+				013D76D823DAE13200E6B4E9 /* Shine.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

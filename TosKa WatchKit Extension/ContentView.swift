@@ -9,7 +9,50 @@
 import SwiftUI
 import AVFoundation
 
-
+struct startView: View{
+    var player: AVPlayer?
+    @State var Player: AVAudioPlayer?
+    
+    func playSoundPrima() {
+    guard let url = Bundle.main.url(forResource: "Prima di breath", withExtension: "m4a") else { return }
+    do {
+        try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+        try AVAudioSession.sharedInstance().setActive(true)
+        Player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+        guard let player = Player else { return }
+        player.setVolume(0.5, fadeDuration: 200.0) //Abbassa il volume
+        player.play()
+    } catch let error {
+        print(error.localizedDescription)
+        }}
+    func playSoundIniziale() {
+    guard let url = Bundle.main.url(forResource: "Apertura TosKa", withExtension: "m4a") else { return }
+    do {
+        try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+        try AVAudioSession.sharedInstance().setActive(true)
+        Player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+        guard let player = Player else { return }
+        player.setVolume(0.5, fadeDuration: 200.0) //Abbassa il volume
+        player.play()
+    } catch let error {
+        print(error.localizedDescription)
+        }}
+    
+    
+    var body: some View{
+        VStack{
+            Spacer()
+            Image(uiImage: UIImage(named: "start.png")!)
+            NavigationLink(destination: ContentView()){
+                Text("Tap to start")
+                    .foregroundColor(Color(red: 0.69, green: 0.988, blue: 0.922))
+            }.simultaneousGesture(TapGesture().onEnded{
+                self.playSoundPrima()
+            })
+        
+        }
+    }
+}
 
 
 struct ContentView: View {
@@ -2204,6 +2247,6 @@ struct FocusView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        startView()
     }
 }
